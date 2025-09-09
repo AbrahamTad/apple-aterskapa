@@ -1,0 +1,240 @@
+/* General Styling*/
+body {
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  color: #06c;
+}
+img {
+  max-width: 100%;
+}
+.white {
+  color: #fff;
+}
+.black {
+  color: #1d1d1f;
+}
+.grey {
+  color: #86868b;
+}
+.top-50 {
+  margin-top: 50px;
+}
+.top-100 {
+  margin-top: 100px;
+}
+/* =========================================
+   NAVBAR (top navigation)
+========================================= */
+
+/* Wrapper: dark background, compact height */
+.nav-wrapper {
+   background: rgba(0, 0, 0, 0.8);
+  font-size: 0.75em;
+  font-weight: 200;
+}
+.nav-wrapper .navbar {
+  padding: 0;
+  min-height: 44px;
+  position: relative;   /* allows mega menu panels to overlap below */
+  z-index: 50;          /* keeps navbar above other content */
+}
+
+/* Top-level nav links (Butik, Mac, iPad, etc.) */
+.nav-wrapper .nav-link {
+  color: #fff !important;
+  font-size: 12px;      /* Apple-like small text */
+  font-weight: 400;
+  height: 44px;         /* centers text vertically */
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+.nav-wrapper .nav-link:hover { color: #ffffff !important; }
+
+/* Even spacing between menu items */
+.nav-wrapper .navbar-nav { gap: 20px; }
+
+/* Apple logo: slightly larger than other icons */
+.nav-wrapper .navbar-brand img {
+  width: 19px;
+  height: auto;
+  display: block;
+}
+
+/* Toggler (hamburger) look */
+.nav-wrapper .navbar-toggler {
+  border: none;
+  color: #f5f5f7;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 8px;
+  /* NOTE: with "d-lg-none" this only shows on mobile */
+}
+
+/* -------- Right-side icons (Search, Cart, ☰) -------- */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;              /* default spacing between icons */
+}
+.nav-icons .nav-link,
+.nav-icons .navbar-toggler {
+  padding: 0;             /* remove default padding */
+  margin: 0;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-icons img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(95%);     /* makes icons soft white (like Apple) */
+  transition: filter 0.2s ease;
+}
+.nav-icons img:hover {
+  filter: brightness(120%);    /* brighten slightly on hover */
+}
+
+
+/* =========================================
+   MEGA DROPDOWN (desktop hover)
+========================================= */
+
+/* Parent list item (has-mega) allows full-width dropdown */
+.has-mega { position: static; }
+
+/* Mega menu panel (hidden by default) */
+.mega-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #1d1d1f;          /* match navbar color */
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0 40px;
+  opacity: 0;                   /* hidden initially */
+  visibility: hidden;
+  transform: translateY(6px);   /* slight slide-down effect */
+  transition: opacity .18s ease, transform .18s ease, visibility 0s .18s;
+  pointer-events: none;         /* can’t click while hidden */
+  z-index: 1000;                /* ensure it overlays content */
+}
+
+/* Grid layout for mega menu: 3 columns */
+.mega-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+}
+.mega-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mega-title {
+  color: #9aa0a6;         /* subtle gray headings */
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+/* Links inside mega menu */
+.mega-col a {
+  display: inline-block;
+  text-decoration: none;
+  color: #f5f5f7;
+  line-height: 1.7;
+  padding: 2px 0;
+}
+.mega-col a:hover { color: #fff; }
+
+/* Left column “headline” links (larger font) */
+.mega-col:first-child ul > li > a {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  line-height: 1.25;
+}
+
+/* Smaller sub-links (example: Jämför Mac-modeller) */
+.mega-sub a {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #a6c8ff;         /* light blue highlight */
+}
+
+/* =========================================
+   Desktop (≥992px): Apple-like layout + mega hover
+========================================= */
+/* =========================================
+   Desktop (≥992px): Apple-like layout + mega hover
+   + extra space ONLY after "Support"
+========================================= */
+@media (min-width: 992px) {
+  /* Keep logo + menu + icons centered as a compact group */
+  .nav-wrapper .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;   /* center the three blocks as a group */
+  }
+
+  /* Center the menu without stretching; allow mega to overflow */
+  .nav-wrapper .navbar-collapse {
+    flex-grow: 0;              /* menu shrinks to its content width */
+    overflow: visible;         /* mega dropdown can overflow */
+    position: static;          /* no new stacking context */
+    display: block !important;
+  }
+
+  /* Small space between logo and menu */
+  .navbar-brand { margin-right: 24px; }
+
+  /* EXTRA SPACE ONLY after the last menu item ("Support") */
+  .navbar-nav > .nav-item:last-child {
+    margin-right: 48px;        /* Support → (48px gap) → icons */
+  }
+
+  /* Icon group spacing (no extra push; just internal gap) */
+  .nav-icons {
+    margin-left: 0;            /* don't push the whole icons block */
+    gap: 24px;                 /* Search ↔ Cart distance */
+  }
+
+  /* Show mega menu on hover/focus — desktop only */
+  .has-mega:hover > .mega-menu,
+  .has-mega:focus-within > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* =========================================
+   Responsive tweaks
+========================================= */
+
+/* Tablet range: 768–991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Keep nav items on one line with tighter spacing */
+  .nav-wrapper .navbar-nav {
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  /* Smaller font and padding for links */
+  .nav-wrapper .nav-link {
+    white-space: nowrap;   /* prevents text wrapping */
+    font-size: 11px;
+    padding: 0 8px;
+    height: 44px;
+  }
+
+  /* Smaller icons and tighter spacing */
+  .nav-icons { gap: 10px; }
+  .nav-icons img { width: 16px; height: 16px; }
+  .navbar-brand img { width: 17px; }
+}
+

@@ -1,0 +1,116 @@
+/* ================================
+   NAVBAR (Apple-lik stil)
+================================ */
+
+/* Wrapper: mörk bakgrund, kompakt höjd */
+.nav-wrapper {
+  background: #1d1d1f; /* Apple-svart */
+  font-size: 1rem; /* nollställ Bootstrap’s scaling */
+}
+.nav-wrapper .navbar {
+  padding: 0;
+  min-height: 44px; /* Apple-navhöjd */
+}
+
+/* Menylänkar (desktop) */
+.nav-wrapper .nav-link {
+  color: #f5f5f7 !important;
+  font-size: 12px; /* liten text (~12px) */
+  font-weight: 400; /* tunn vikt */
+  height: 44px; /* centrerad vertikalt */
+  padding: 0 12px; /* tajt spacing */
+  display: flex;
+  align-items: center;
+}
+.nav-wrapper .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Avstånd mellan poster (Bootstrap 5 gap-stöd) */
+.nav-wrapper .navbar-nav {
+  gap: 20px;
+}
+
+/* Ikoner i länkar (t.ex. Store, Support) */
+.nav-wrapper .nav-link img {
+  width: 14px;
+  height: auto;
+  display: inline-block;
+}
+
+/* Apple-loggan lite större */
+.nav-wrapper .navbar-brand img {
+  width: 19px;
+  height: auto;
+  display: block;
+}
+
+/* Hamburgerknappen */
+.nav-wrapper .navbar-toggler {
+  border: none;
+  color: #f5f5f7;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 8px;
+}
+
+/* ================================
+   Högersidans ikoner (Sök, Väska, ☰)
+================================ */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* spacing mellan ikonerna */
+}
+
+.nav-icons .nav-link,
+.nav-icons .navbar-toggler {
+  padding: 0; /* bort med extra padding */
+  margin: 0;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons img {
+  width: 18px; /*  storlek på alla ikoner */
+  height: 18px;
+  display: block;
+}
+
+.nav-icons .navbar-toggler {
+  border: 0;
+  font-size: 18px;
+  color: #f5f5f7;
+}
+
+.nav-icons .nav-link:hover,
+.nav-icons .navbar-toggler:hover {
+  opacity: 0.85;
+}
+
+/* ================================
+   MEDIA QUERIES
+================================ */
+
+/* Desktop (>=768px) */
+@media (min-width: 768px) {
+  .nav-item {
+    text-align: center !important;
+    padding: 0;
+    border-bottom: 0;
+  }
+}
+
+/* Mobil (<768px) */
+@media (max-width: 767.98px) {
+  .nav-wrapper .nav-link {
+    height: auto;
+    padding: 10px 0;
+    justify-content: flex-start;
+  }
+  .nav-item {
+    padding: 4px 0;
+    border-bottom: 1px solid #4b4b4b;
+  }
+}
