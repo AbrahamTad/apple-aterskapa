@@ -1,0 +1,450 @@
+/* Base */
+:root {
+  --bg-black: #000;
+  --text: #d2d2d7; /* Apple-ish gray for body text */
+  --text-strong: #f5f5f7;
+  --link: #2997ff;
+  --ring: rgba(255, 255, 255, 0.25);
+  --maxw: 1120px; /* content width */
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons",
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: #06c;
+}
+img {
+  max-width: 100%;
+}
+.white {
+  color: #fff;
+}
+.black {
+  color: #1d1d1f;
+}
+.grey {
+  color: #86868b;
+}
+.top-50 {
+  margin-top: 50px;
+}
+.top-100 {
+  margin-top: 100px;
+}
+/* =========================================
+   NAVBAR (top navigation)
+========================================= */
+
+/* Wrapper: dark background, compact height */
+.nav-wrapper {
+  background: rgba(0, 0, 0, 0.8);
+  font-size: 0.75em;
+  font-weight: 200;
+}
+.nav-wrapper .navbar {
+  padding: 0;
+  min-height: 44px;
+  position: relative; /* allows mega menu panels to overlap below */
+  z-index: 50; /* keeps navbar above other content */
+}
+
+/* Top-level nav links (Butik, Mac, iPad, etc.) */
+.nav-wrapper .nav-link {
+  color: #fff !important;
+  font-size: 12px; /* Apple-like small text */
+  font-weight: 400;
+  height: 44px; /* centers text vertically */
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+.nav-wrapper .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Even spacing between menu items */
+.nav-wrapper .navbar-nav {
+  gap: 20px;
+}
+
+/* Apple logo: slightly larger than other icons */
+.nav-wrapper .navbar-brand img {
+  width: 19px;
+  height: auto;
+  display: block;
+}
+
+/* Toggler (hamburger) look */
+.nav-wrapper .navbar-toggler {
+  border: none;
+  color: #f5f5f7;
+  font-size: 18px;
+  line-height: 1;
+  padding: 0 8px;
+  /* NOTE: with "d-lg-none" this only shows on mobile */
+}
+
+/* -------- Right-side icons (Search, Cart, ☰) -------- */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px; /* default spacing between icons */
+}
+.nav-icons .nav-link,
+.nav-icons .navbar-toggler {
+  padding: 0; /* remove default padding */
+  margin: 0;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-icons img {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(95%); /* makes icons soft white (like Apple) */
+  transition: filter 0.2s ease;
+}
+.nav-icons img:hover {
+  filter: brightness(120%); /* brighten slightly on hover */
+}
+
+/* =========================================
+   MEGA DROPDOWN (desktop hover)
+========================================= */
+
+/* Parent list item (has-mega) allows full-width dropdown */
+.has-mega {
+  position: static;
+}
+
+/* Mega menu panel (hidden by default) */
+.mega-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #1d1d1f; /* match navbar color */
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 0 40px;
+  opacity: 0; /* hidden initially */
+  visibility: hidden;
+  transform: translateY(6px); /* slight slide-down effect */
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
+  pointer-events: none; /* can’t click while hidden */
+  z-index: 1000; /* ensure it overlays content */
+}
+
+/* Grid layout for mega menu: 3 columns */
+.mega-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+}
+.mega-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mega-title {
+  color: #9aa0a6; /* subtle gray headings */
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0 0 10px;
+}
+
+/* Links inside mega menu */
+.mega-col a {
+  display: inline-block;
+  text-decoration: none;
+  color: #f5f5f7;
+  line-height: 1.7;
+  padding: 2px 0;
+}
+.mega-col a:hover {
+  color: #fff;
+}
+
+/* Left column “headline” links (larger font) */
+.mega-col:first-child ul > li > a {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* Smaller sub-links (example: Jämför Mac-modeller) */
+.mega-sub a {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #a6c8ff; /* light blue highlight */
+}
+
+/* =========================================
+   Desktop (≥992px) +mega hover
+========================================= */
+
+@media (min-width: 992px) {
+  /* Keep logo + menu + icons centered as a compact group */
+  .nav-wrapper .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center the three blocks as a group */
+  }
+
+  /* Center the menu without stretching; allow mega to overflow */
+  .nav-wrapper .navbar-collapse {
+    flex-grow: 0; /* menu shrinks to its content width */
+    overflow: visible; /* mega dropdown can overflow */
+    position: static; /* no new stacking context */
+    display: block !important;
+  }
+
+  /* Small space between logo and menu */
+  .navbar-brand {
+    margin-right: 24px;
+  }
+
+  /* EXTRA SPACE ONLY after the last menu item ("Support") */
+  .navbar-nav > .nav-item:last-child {
+    margin-right: 48px; /* Support → (48px gap) → icons */
+  }
+
+  /* Icon group spacing (no extra push; just internal gap) */
+  .nav-icons {
+    margin-left: 0; /* don't push the whole icons block */
+    gap: 24px; /* Search ↔ Cart distance */
+  }
+
+  /* Show mega menu on hover/focus — desktop only */
+  .has-mega:hover > .mega-menu,
+  .has-mega:focus-within > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* =========================================
+   Responsive tweaks
+========================================= */
+
+/* Tablet range: 768–991.98px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Keep nav items on one line with tighter spacing */
+  .nav-wrapper .navbar-nav {
+    gap: 12px;
+    flex-wrap: nowrap;
+  }
+
+  /* Smaller font and padding for links */
+  .nav-wrapper .nav-link {
+    white-space: nowrap; /* prevents text wrapping */
+    font-size: 11px;
+    padding: 0 8px;
+    height: 44px;
+  }
+
+  /* Smaller icons and tighter spacing */
+  .nav-icons {
+    gap: 10px;
+  }
+  .nav-icons img {
+    width: 16px;
+    height: 16px;
+  }
+  .navbar-brand img {
+    width: 17px;
+  }
+}
+
+.event-hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  padding: 65px 20px;
+  color: #fff;
+}
+
+/* Reusable button (pill outline like Apple) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--text-strong);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  backdrop-filter: saturate(180%) blur(20px);
+  transition: border-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+}
+.btn:hover {
+  border-color: #fff;
+}
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+.btn--pill {
+}
+
+/* Links inside hero copy */
+.hero__link {
+  color: #9ad;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hero__link:hover {
+  color: #cfe3ff;
+}
+
+/* =================== HERO 1 (Apple flame) =================== */
+.hero {
+  background: var(--bg-black);
+  width: 100%;
+}
+
+.hero--apple {
+  padding: clamp(64px, 8vw, 120px) 16px clamp(56px, 6vw, 96px);
+}
+
+.hero__inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  background-repeat: no-repeat;
+  
+  /* gap: clamp(16px, 4vw, 28px); */
+}
+
+
+/* Two divs: media  */
+.hero__media {
+  width: min(820px, 85vw);
+}
+.hero__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* gentle glow vignette around logo */
+  filter: drop-shadow(0 28px 60px rgba(0, 0, 0, 0.75));
+}
+
+.hero__copy {
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero__lead {
+  margin: 0;
+  color: var(--text-strong);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+
+/* =================== HERO 2 (iPhone 17 Pro) =================== */
+.hero--iphone{
+  background:#000;
+  padding: clamp(48px, 6vw, 80px) 16px 0;
+}
+
+.hero2__inner{
+  max-width: var(--maxw);
+  margin:0 auto;
+  text-align:center;
+  color:var(--text-strong);
+}
+
+.hero2__eyebrow{
+ 
+  margin:0 0 .3rem;
+  font-weight:600;
+  font-size: clamp(20px, 2.6vw, 32px);
+  color:#ffa558; /* subtle warm tone like Apple’s orange hero */
+}
+.hero2__eyebrow img{
+  margin-bottom: 15px;
+}
+
+.hero2__title{
+  margin:0 0 .8rem;
+  font-size: clamp(90px, 14vw, 176px);
+  line-height: .9;
+  font-weight: 800;
+  letter-spacing: .02em;
+  background: linear-gradient(180deg, #ffcf8c 0%, #c36c1f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero2__lead{
+  max-width: 880px;
+  margin: 0 auto 10px;
+  color:var(--text);
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height:1.45;
+}
+
+.hero2__sub{
+  margin:.4rem 0 1.2rem;
+  color:#888;
+  font-size: 14px;
+}
+
+.hero2__ctas{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+/* Media */
+.hero2__media{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  overflow: hidden;
+}
+.hero2__img{
+  width: min(1400px, 120vw);
+  height:auto;
+  display:block;
+  transform: translateY(12px); /* push the phone down slightly like Apple’s crop */
+}
+
+
+@media (min-width: 992px){
+  
+
+
+}
+
