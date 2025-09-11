@@ -1,4 +1,11 @@
+
 /* Base */
+/* =========================================
+   VARIABLES & GLOBALS
+   :root { … } – app-wide design tokens (CSS variables)
+
+:root is the top of the document. Variables you define here are available everywhere
+========================================= */
 :root {
   --bg-black: #000;
   --text: #d2d2d7;
@@ -296,11 +303,11 @@ img {
 
 /* Trim section padding (top/bottom) */
 .hero--apple {
-  padding-block: clamp(6px, 0.8vw, 16px);
+  padding-block: clamp(10px, 1.9vw, 16px);
 }
 
-.hero__inner {
-  max-width: var(--maxw);
+
+  .hero__inner { 
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -573,4 +580,94 @@ img {
 .section-air .air-ctas .btn:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== iPhone 17 hero ===== */
+.section-iphone17{
+  /* soft light → white gradient, like Apple */
+  background: linear-gradient(180deg,#eceff3 0%,#f6f8fa 22%,#ffffff 40%,#ffffff 100%);
+  color:#1d1d1f;
+  padding: clamp(36px,6vw,80px) 16px 0;
+}
+
+.iphone17__inner{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title: gradient on "iPhone" and "17" */
+.iphone17__title{
+  margin: 0 0 .6rem;
+  line-height: 1;
+  font-weight: 700;
+  font-size: clamp(42px,7vw,80px);
+  letter-spacing: -0.02em;
+}
+.iphone17__title > span{
+  background: linear-gradient(90deg,#9a74ff 0%,#64b4ff 40%,#4fe28a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+.iphone17__title .num{
+  margin-left: .22em;
+  background: linear-gradient(90deg,#7ac0ff 0%,#6fe08f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Copy */
+.iphone17__lead{
+  max-width: 880px;
+  margin: 0 auto 10px;
+  font-size: clamp(16px,2vw,24px);
+  line-height: 1.66;
+  font-weight: 600;
+  color:#6e6e73;
+}
+.iphone17__sub{
+  margin: .5rem 0 1.2rem;
+  font-size: 14px;
+  color:#6e6e73;
+}
+
+/* CTAs (uses your .btn styles) */
+.iphone17__ctas{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  margin-bottom: clamp(24px,4vw,40px);
+}
+
+/* Stage / image */
+.iphone17__stage{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  min-height: clamp(220px,26vw,360px);
+  margin-top: clamp(8px,2vw,20px);
+}
+.iphone17__stage picture{ display:block; width:100%; }
+.iphone17__img{
+  display:block;
+  width: min(1320px, 120vw);
+  height:auto;
+  transform: translateY(16px);  /* sink slightly into bottom */
+}
+
+/* Mobile tweaks (≤734px) */
+@media (max-width: 734px){
+  .iphone17__stage{
+    padding-inline: clamp(12px,4vw,20px);
+    min-height: clamp(180px,42vw,280px);
+  }
+  .iphone17__img{
+    width: min(680px, 96vw);
+    transform: translateY(10px);
+  }
 }
