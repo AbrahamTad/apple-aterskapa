@@ -671,3 +671,156 @@ img {
     transform: translateY(10px);
   }
 }
+
+/* Base style for the pill buttons */
+.btn.btn--pill {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  border: 2px solid black;
+  border-radius: 50px;
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect: black background, white text */
+.btn.btn--pill:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/* =================== HERO 4 =================== */
+/* ---- Layout container ---- */
+.two-up {
+  display: grid;
+  grid-template-columns: 1fr;   /* mobile: 1 column */
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 16px;
+}
+
+/* desktop/tablet: 2 columns */
+@media (min-width: 900px) {
+  .two-up {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* ---- Tile styling ---- */
+.tile {
+  background: #f5f5f7;
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  text-align: center;
+}
+
+/* Content + image */
+.tile__content { margin-bottom: 16px; }
+.tile__image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Optional: make tiles equal height on larger screens */
+@media (min-width: 900px) {
+  .tile { min-height: 520px; }
+}
+
+/* ---- Buttons (from earlier) ---- */
+.btn.btn--pill {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin: 0 0.35rem;
+  border: 2px solid black;
+  border-radius: 50px;
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+.btn.btn--pill:hover { background: black; color: white; }
+
+/* Small typographic helpers */
+.meta { color: #6e6e73; margin: 8px 0 16px; }
+
+/* Container: 1 col on mobile, 2 cols on >=900px */
+.two-up{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 16px;
+}
+@media (min-width:900px){
+  .two-up{ grid-template-columns:1fr 1fr; gap:24px; }
+}
+
+/* Tile */
+.tile{
+  border-radius:16px;
+  overflow:hidden;
+}
+.tile--light{ background:#f5f5f7; }
+.tile--dark{ background:#000; color:#fff; }
+
+/* Inner layout: content over image on mobile; side-by-side on desktop if you want */
+.tile__inner{
+  display:grid;
+  grid-template-rows:auto 1fr;         /* stack on mobile */
+  text-align:center;
+  padding:28px 20px;
+}
+.tile__content{ margin-bottom:16px; }
+.tile__image img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+/* Equal-ish height feeling on desktop */
+@media (min-width:900px){
+  .tile__inner{
+    min-height:520px;
+    grid-template-rows:auto 1fr; /* still stacked vertically; change to columns if desired */
+  }
+}
+
+/* Typo helpers */
+.meta{ color:#6e6e73; margin:8px 0 16px; }
+.meta--dark{ color:#bfbfc3; }
+
+/* Buttons (hover invert) */
+.btn.btn--pill{
+  display:inline-block;
+  padding:.6rem 1.2rem;
+  margin:0 .35rem;
+  border:2px solid #000;
+  border-radius:999px;
+  text-decoration:none;
+  color:#000;
+  background:transparent;
+  font-weight:500;
+  transition:all .25s ease;
+}
+.btn.btn--pill:hover{ background:#000; color:#fff; }
+
+/* Buttons for dark tile */
+.btn--light{
+  border-color:#fff;
+  color:#fff;
+}
+.btn--light:hover{ background:#fff; color:#000; }
