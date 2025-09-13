@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
@@ -30,582 +30,572 @@
   <body>
     <!-- Header navigation -->
     <header>
-     <div class="fixed-top">
-       <div class="nav-wrapper">
-        <!-- fixed-top för att fästa nav vid toppen vid scroll -->
-        <div class="container">
-          <!-- Bootstrap container för att centrera och ge padding -->
-          <nav class="navbar navbar-expand-lg">
-            <!-- Apple-logotyp -->
-            <a class="navbar-brand" href="/" aria-label="Apple">
-              <img src="assets//icons/favicon.ico" alt="Apple" />
-            </a>
-
-            <!-- Ikoner: Sök, Väska, Hamburgare -->
-
-            <div
-              class="d-flex align-items-center order-md-2 ms-auto ms-lg-0 nav-icons"
-            >
-              <a class="nav-link" href="/search/" aria-label="Sök">
-                <img src="assets/icons/search-icon-sm.png" alt="Sök" />
-              </a>
-              <a class="nav-link" href="/cart/" aria-label="Kundvagn">
-                <img src="assets/icons/cart-sm.png" alt="Kundvagn" />
+      <div class="fixed-top">
+        <div class="nav-wrapper">
+          <!-- fixed-top för att fästa nav vid toppen vid scroll -->
+          <div class="container">
+            <!-- Bootstrap container för att centrera och ge padding -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+              <!-- Apple-logotyp -->
+              <a class="navbar-brand" href="/" aria-label="Apple">
+                <img src="assets/icons/favicon.ico" alt="Apple" />
               </a>
 
-              <!-- NAVBAR TOGGLER (Hamburger icon) -->
-              <button
-                class="navbar-toggler d-lg-none"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
-                aria-expanded="false"
-                aria-label="Meny"
+              <!-- Ikoner: Sök, Väska, Hamburgare -->
+              <div
+                class="d-flex align-items-center order-md-2 ms-auto ms-lg-0 nav-icons"
               >
-                ☰
-                <!-- the hamburger icon -->
-              </button>
-            </div>
+                <a class="nav-link" href="/search/" aria-label="Sök">
+                  <img src="assets/icons/search-icon-sm.png" alt="Sök" />
+                </a>
+                <a class="nav-link" href="/cart/" aria-label="Kundvagn">
+                  <img src="assets/icons/cart-sm.png" alt="Kundvagn" />
+                </a>
 
-            <!-- Meny + Mega-dropdowns -->
-            <div class="collapse navbar-collapse order-md-1" id="mainNavbar">
-              <ul class="navbar-nav mx-auto">
-                <!-- Butik -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/store/">Butik</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla det senaste</h4>
-                        <ul>
-                          <li><a href="#">Mac</a></li>
-                          <li><a href="#">iPad</a></li>
-                          <li><a href="#">iPhone</a></li>
-                          <li><a href="#">Apple Watch</a></li>
-                          <li><a href="#">Tillbehör</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Snabblänkar</h4>
-                        <ul>
-                          <li><a href="#">Hitta en butik</a></li>
-                          <li><a href="#">Beställningsstatus</a></li>
-                          <li><a href="#">Apple Trade In</a></li>
-                          <li><a href="#">Studenterbjudande</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Visa specialbutiker</h4>
-                        <ul>
-                          <li><a href="#">Utbildning</a></li>
-                          <li><a href="#">Företag</a></li>
-                        </ul>
+                <!-- NAVBAR TOGGLER (Hamburger icon) -->
+                <button
+                  class="navbar-toggler d-lg-none"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#mainNavbar"
+                  aria-controls="mainNavbar"
+                  aria-expanded="false"
+                  aria-label="Meny"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                  <!-- If you prefer text, you can use: ☰ -->
+                </button>
+              </div>
+
+              <!-- Meny + Mega-dropdowns -->
+              <div class="collapse navbar-collapse order-md-1" id="mainNavbar">
+                <ul class="navbar-nav mx-auto">
+                  <!-- Butik -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/store/">Butik</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla det senaste</h4>
+                          <ul>
+                            <li><a href="#">Mac</a></li>
+                            <li><a href="#">iPad</a></li>
+                            <li><a href="#">iPhone</a></li>
+                            <li><a href="#">Apple Watch</a></li>
+                            <li><a href="#">Tillbehör</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Snabblänkar</h4>
+                          <ul>
+                            <li><a href="#">Hitta en butik</a></li>
+                            <li><a href="#">Beställningsstatus</a></li>
+                            <li><a href="#">Apple Trade In</a></li>
+                            <li><a href="#">Studenterbjudande</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Visa specialbutiker</h4>
+                          <ul>
+                            <li><a href="#">Utbildning</a></li>
+                            <li><a href="#">Företag</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- Mac  -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/mac/">Mac</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på Mac</h4>
-                        <ul>
-                          <li><a href="#">Se alla Mac-modeller</a></li>
-                          <li><a href="#">MacBook Air</a></li>
-                          <li><a href="#">MacBook Pro</a></li>
-                          <li><a href="#">iMac</a></li>
-                          <li><a href="#">Mac mini</a></li>
-                          <li class="mega-sub">
-                            <a href="#">Jämför Mac-modeller</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla Mac</h4>
-                        <ul>
-                          <li><a href="#">Köp Mac</a></li>
-                          <li><a href="#">Mac-tillbehör</a></li>
-                          <li><a href="#">Apple Trade In</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om Mac</h4>
-                        <ul>
-                          <li><a href="#">Mac-support</a></li>
-                          <li><a href="#">AppleCare+</a></li>
-                          <li><a href="#">iCloud+</a></li>
-                        </ul>
+                  <!-- Mac -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/mac/">Mac</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Titta närmare på Mac</h4>
+                          <ul>
+                            <li><a href="#">Se alla Mac-modeller</a></li>
+                            <li><a href="#">MacBook Air</a></li>
+                            <li><a href="#">MacBook Pro</a></li>
+                            <li><a href="#">iMac</a></li>
+                            <li><a href="#">Mac mini</a></li>
+                            <li class="mega-sub">
+                              <a href="#">Jämför Mac-modeller</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla Mac</h4>
+                          <ul>
+                            <li><a href="#">Köp Mac</a></li>
+                            <li><a href="#">Mac-tillbehör</a></li>
+                            <li><a href="#">Apple Trade In</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om Mac</h4>
+                          <ul>
+                            <li><a href="#">Mac-support</a></li>
+                            <li><a href="#">AppleCare+</a></li>
+                            <li><a href="#">iCloud+</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- iPad -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/ipad/">iPad</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på iPad</h4>
-                        <ul>
-                          <li><a href="#">Se alla iPad-modeller</a></li>
-                          <li><a href="#">iPad Pro</a></li>
-                          <li><a href="#">iPad Air</a></li>
-                          <li><a href="#">iPad</a></li>
-                          <li><a href="#">iPad mini</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla iPad</h4>
-                        <ul>
-                          <li><a href="#">Köp iPad</a></li>
-                          <li><a href="#">iPad-tillbehör</a></li>
-                          <li><a href="#">Apple Trade In</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om iPad</h4>
-                        <ul>
-                          <li><a href="#">iPad-support</a></li>
-                          <li><a href="#">AppleCare+ för iPad</a></li>
-                          <li><a href="#">iCloud+</a></li>
-                        </ul>
+                  <!-- iPad -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/ipad/">iPad</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Titta närmare på iPad</h4>
+                          <ul>
+                            <li><a href="#">Se alla iPad-modeller</a></li>
+                            <li><a href="#">iPad Pro</a></li>
+                            <li><a href="#">iPad Air</a></li>
+                            <li><a href="#">iPad</a></li>
+                            <li><a href="#">iPad mini</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla iPad</h4>
+                          <ul>
+                            <li><a href="#">Köp iPad</a></li>
+                            <li><a href="#">iPad-tillbehör</a></li>
+                            <li><a href="#">Apple Trade In</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om iPad</h4>
+                          <ul>
+                            <li><a href="#">iPad-support</a></li>
+                            <li><a href="#">AppleCare+ för iPad</a></li>
+                            <li><a href="#">iCloud+</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- iPhone -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/iphone/">iPhone</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på iPhone</h4>
-                        <ul>
-                          <li><a href="#">Se alla iPhone-modeller</a></li>
-                          <li><a href="#">iPhone 16 Pro</a></li>
-                          <li><a href="#">iPhone 16</a></li>
-                          <li><a href="#">iPhone 15</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla iPhone</h4>
-                        <ul>
-                          <li><a href="#">Köp iPhone</a></li>
-                          <li><a href="#">iPhone-tillbehör</a></li>
-                          <li><a href="#">Apple Trade In</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om iPhone</h4>
-                        <ul>
-                          <li><a href="#">iPhone-support</a></li>
-                          <li><a href="#">AppleCare+ för iPhone</a></li>
-                          <li><a href="#">Apple Pay</a></li>
-                        </ul>
+                  <!-- iPhone -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/iphone/">iPhone</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Titta närmare på iPhone</h4>
+                          <ul>
+                            <li><a href="#">Se alla iPhone-modeller</a></li>
+                            <li><a href="#">iPhone 16 Pro</a></li>
+                            <li><a href="#">iPhone 16</a></li>
+                            <li><a href="#">iPhone 15</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla iPhone</h4>
+                          <ul>
+                            <li><a href="#">Köp iPhone</a></li>
+                            <li><a href="#">iPhone-tillbehör</a></li>
+                            <li><a href="#">Apple Trade In</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om iPhone</h4>
+                          <ul>
+                            <li><a href="#">iPhone-support</a></li>
+                            <li><a href="#">AppleCare+ för iPhone</a></li>
+                            <li><a href="#">Apple Pay</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- Watch -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/watch/">Watch</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på Watch</h4>
-                        <ul>
-                          <li><a href="#">Se alla Watch-modeller</a></li>
-                          <li><a href="#">Series 10</a></li>
-                          <li><a href="#">Ultra 2</a></li>
-                          <li><a href="#">SE</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla Watch</h4>
-                        <ul>
-                          <li><a href="#">Köp Apple Watch</a></li>
-                          <li><a href="#">Armband</a></li>
-                          <li><a href="#">Tillbehör</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om Watch</h4>
-                        <ul>
-                          <li><a href="#">Watch-support</a></li>
-                          <li><a href="#">AppleCare+</a></li>
-                          <li><a href="#">iCloud+</a></li>
-                        </ul>
+                  <!-- Watch -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/watch/">Watch</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Titta närmare på Watch</h4>
+                          <ul>
+                            <li><a href="#">Se alla Watch-modeller</a></li>
+                            <li><a href="#">Series 10</a></li>
+                            <li><a href="#">Ultra 2</a></li>
+                            <li><a href="#">SE</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla Watch</h4>
+                          <ul>
+                            <li><a href="#">Köp Apple Watch</a></li>
+                            <li><a href="#">Armband</a></li>
+                            <li><a href="#">Tillbehör</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om Watch</h4>
+                          <ul>
+                            <li><a href="#">Watch-support</a></li>
+                            <li><a href="#">AppleCare+</a></li>
+                            <li><a href="#">iCloud+</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- AirPods -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/airpods/">AirPods</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på AirPods</h4>
-                        <ul>
-                          <li><a href="#">Se alla AirPods-modeller</a></li>
-                          <li><a href="#">AirPods 4</a></li>
-                          <li><a href="#">AirPods Pro 2</a></li>
-                          <li><a href="#">AirPods Max</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla AirPods</h4>
-                        <ul>
-                          <li><a href="#">Köp AirPods</a></li>
-                          <li><a href="#">AirPods-tillbehör</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om AirPods</h4>
-                        <ul>
-                          <li><a href="#">AirPods-support</a></li>
-                          <li><a href="#">AppleCare+ för hörlurar</a></li>
-                          <li><a href="#">Apple Music</a></li>
-                        </ul>
+                  <!-- AirPods -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/airpods/">AirPods</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">Titta närmare på AirPods</h4>
+                          <ul>
+                            <li><a href="#">Se alla AirPods-modeller</a></li>
+                            <li><a href="#">AirPods 4</a></li>
+                            <li><a href="#">AirPods Pro 2</a></li>
+                            <li><a href="#">AirPods Max</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla AirPods</h4>
+                          <ul>
+                            <li><a href="#">Köp AirPods</a></li>
+                            <li><a href="#">AirPods-tillbehör</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om AirPods</h4>
+                          <ul>
+                            <li><a href="#">AirPods-support</a></li>
+                            <li><a href="#">AppleCare+ för hörlurar</a></li>
+                            <li><a href="#">Apple Music</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- TV och hem -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/home/">Tv och hem</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">Titta närmare på tv och hem</h4>
-                        <ul>
-                          <li><a href="#">Se allt om tv och hem</a></li>
-                          <li><a href="#">Apple TV 4K</a></li>
-                          <li><a href="#">HomePod</a></li>
-                          <li><a href="#">HomePod mini</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Handla tv och hem</h4>
-                        <ul>
-                          <li><a href="#">Köp Apple TV 4K</a></li>
-                          <li><a href="#">Köp HomePod</a></li>
-                          <li><a href="#">Tillbehör</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer om tv och hem</h4>
-                        <ul>
-                          <li><a href="#">Apple TV-support</a></li>
-                          <li><a href="#">Apple TV+</a></li>
-                          <li><a href="#">AirPlay</a></li>
-                        </ul>
+                  <!-- TV och hem -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/home/">Tv och hem</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">
+                            Titta närmare på tv och hem
+                          </h4>
+                          <ul>
+                            <li><a href="#">Se allt om tv och hem</a></li>
+                            <li><a href="#">Apple TV 4K</a></li>
+                            <li><a href="#">HomePod</a></li>
+                            <li><a href="#">HomePod mini</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Handla tv och hem</h4>
+                          <ul>
+                            <li><a href="#">Köp Apple TV 4K</a></li>
+                            <li><a href="#">Köp HomePod</a></li>
+                            <li><a href="#">Tillbehör</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer om tv och hem</h4>
+                          <ul>
+                            <li><a href="#">Apple TV-support</a></li>
+                            <li><a href="#">Apple TV+</a></li>
+                            <li><a href="#">AirPlay</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- Underhållning -->
-                <li class="nav-item has-mega">
-                  <a class="nav-link" href="/entertainment/">Underhållning</a>
-                  <div class="mega-menu">
-                    <div class="container mega-inner">
-                      <div class="mega-col">
-                        <h4 class="mega-title">
-                          Titta närmare på underhållning
-                        </h4>
-                        <ul>
-                          <li><a href="#">Se allt om underhållning</a></li>
-                          <li><a href="#">Apple One</a></li>
-                          <li><a href="#">Apple TV+</a></li>
-                          <li><a href="#">Apple Music</a></li>
-                          <li><a href="#">Apple Arcade</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Support</h4>
-                        <ul>
-                          <li><a href="#">Support för Apple TV+</a></li>
-                          <li><a href="#">Support för Apple Music</a></li>
-                        </ul>
-                      </div>
-                      <div class="mega-col">
-                        <h4 class="mega-title">Mer</h4>
-                        <ul>
-                          <li><a href="#">App Store</a></li>
-                          <li><a href="#">iCloud+</a></li>
-                        </ul>
+                  <!-- Underhållning -->
+                  <li class="nav-item has-mega">
+                    <a class="nav-link" href="/entertainment/">Underhållning</a>
+                    <div class="mega-menu">
+                      <div class="container mega-inner">
+                        <div class="mega-col">
+                          <h4 class="mega-title">
+                            Titta närmare på underhållning
+                          </h4>
+                          <ul>
+                            <li><a href="#">Se allt om underhållning</a></li>
+                            <li><a href="#">Apple One</a></li>
+                            <li><a href="#">Apple TV+</a></li>
+                            <li><a href="#">Apple Music</a></li>
+                            <li><a href="#">Apple Arcade</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Support</h4>
+                          <ul>
+                            <li><a href="#">Support för Apple TV+</a></li>
+                            <li><a href="#">Support för Apple Music</a></li>
+                          </ul>
+                        </div>
+                        <div class="mega-col">
+                          <h4 class="mega-title">Mer</h4>
+                          <ul>
+                            <li><a href="#">App Store</a></li>
+                            <li><a href="#">iCloud+</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
+                  </li>
 
-                <!-- Tillbehör / Support  -->
-                <li class="nav-item">
-                  <a class="nav-link" href="/accessories/">Tillbehör</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/support/">Support</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                  <!-- Tillbehör / Support -->
+                  <li class="nav-item">
+                    <a class="nav-link" href="/accessories/">Tillbehör</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/support/">Support</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
+      <!-- closes .fixed-top -->
     </header>
-            
-      <section>
-        
- 
-  <!-- ===== Second section for iPhone 17 Pro ===== -->
-<section class="hero-iphone17pro">
-  <div class="hero-inner">
-    <h1 class="hero-title">iPhone 17 Pro</h1>
-    <p class="hero-subtitle">Helt klart Pro.</p>
-    <p class="hero-release">Släpps 19 september</p>
 
-    <div class="hero-ctas">
-      <a href="https://www.apple.com/se/iphone-17-pro/" class="btn btn-primary">Läs mer</a>
-      <a href="https://www.apple.com/se/shop/buy-iphone/iphone-17-pro" class="btn btn-outline">Förbeställ</a>
-    </div>
+    <!-- End header navigation -->
 
-    
+    <!-- Main content -->
+    <main>
+      <!-- ============ iPhone 17 Pro (dark hero) ============ -->
 
-    <div class="hero2__media">
-      <picture>
-        <!-- Mobile (≤734px) -->
-        <source media="(max-width: 734px)"
-                srcset="assets/images/iphone_17_mobile-25.png 1x" />
-        <!-- Fallback / Desktop -->
-        <img src="assets/images/iphone_17_pro__2025.png"
-             alt="iPhone 17 Pro – orange"
-             class="hero2__img"
-             loading="lazy" />
-      </picture>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== Third section for iPhone Air ===== -->
-<section class="section-air" id="iphone-air">
-  <div class="air-copy-container">
-    <!-- Title logo image -->
-    <img src="assets/images/iphone_air_logo.png" alt="iPhone Air logo" class="air-logo" />
-
-    <p class="air-iphoneTxt">
-      Tidernas tunnaste iPhone.<br>
-      Med oanade krafter.
-    </p>
-
-    <div class="air-availability">
-      <span class="callout">Släpps 19 september</span>
-    </div>
-
-    <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Förbeställ</a>
-    </div>
-  </div>
-
-  
-   <!-- Responsive artwork (mobile + desktop) -->
-        
-      <picture class="hero-air__art">
-    <!-- Mobile image -->
-    <source srcset="assets/images/iphone_air__w2025.png" media="(max-width: 768px)" />
-    <!-- Desktop image (default) -->
-    <img class="hero-air-img" src="assets/images/Apple-air-hand4.png" alt="iPhone Air side profile" />
-  </picture>
-</section>
-
-
-
- 
-
-<!-- ===== Fourth section for iPhone 17 (standard) ===== -->
-<section class="section-iphone17" id="iphone-17">
-  <div class="iphone17__inner">
-
-    <h1 class="iphone17__title">
-      <span>iPhone</span><span class="num">17</span>
-    </h1>
-
-    <p class="iphone17__lead">
-      Ännu mer tilltalande. Ännu mer slitstark.
-      Vår bästa skärm någonsin med ProMotion upp till 120&nbsp;Hz och
-      Ceramic&nbsp;Shield&nbsp;2 på framsidan. Avancerat 48&nbsp;MP
-      Fusion-dubbelkamerasystem. Och den nya Center Stage-skärmkameran.
-    </p>
-
-    <p class="iphone17__sub">
-      Förbeställ från 12 september kl.&nbsp;14.00<br>
-      Släpps 19 september
-    </p>
-    
-     <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Visa priser</a>
-    </div>
-
-  
-
-    <!-- Image stage with art direction -->
-    <div class="iphone17__stage" aria-hidden="true">
-      <picture>
-        <!-- Mobile (≤734px) -->
-        <source
-          media="(max-width: 734px)"
-          srcset="assets/images/iphone_17__mobile-25.png 1x"
-        />
-        <!-- Desktop / fallback -->
-        <img
-          src="assets/images/iphone_17__f2tilltalande-Avan.png"
-          alt="iPhone 17 i flera färger"
-          class="iphone17__img"
-          loading="lazy"
-        />
-      </picture>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ===== Fifth section for AirPods Pro 3 and Apple Watch Series 11 ===== -->
-<section class="two-up">
-  <!-- AirPods Pro 3-->
-  <article class="tile">
-    <div class="tile__content">
-      <h2>AirPods Pro 3</h2>
-      <p>Världens bästa aktiva brusreducering för in ear-hörlurar.</p>
-      <p class="meta">Släpps 19 september</p>
-       <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Förbeställ</a>
-    </div>
-      
-    </div>
-    <div class="tile__image">
-      <img src="assets/images/airpods_pro_3__25.png" alt="AirPods Pro 3" />
-    </div>
-  </article>
-
-  <!-- WATCH SERIES 11 -->
-  <article class="tile">
-    <div class="tile__content">
-      <h2>WATCH SERIES 11</h2>
-      <p>Det ultimata sättet att följa din hälsa.</p>
-      <p class="meta">Släpps 19 september</p>
- <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Förbeställ</a>
-    </div>
-      
-     
-    </div>
-    <div class="tile__image">
-      <img src="assets/images/apple_watch_series_11__25.jpg" alt="Apple Watch Series 11" />
-    </div>
-  </article>
-</section>
-<!-- ===== Sixth section for Apple Watch SE 3 and Apple Watch Ultra 3 ===== -->
-
-<section class="two-up">
-  <!-- WATCH SE 3 -->
-  <article class="tile tile--light">
-    <div class="tile__inner">
-      <div class="tile__content">
-        <h2>WATCH SE 3</h2>
-        <p>Jogga. Snacka. Logga. Digga.</p>
-        <p class="meta">Släpps 19 september</p>
-         <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Förbeställ</a>
-    </div>
-        
-      </div>
-      <div class="tile__image">
-        <img src="assets/images/apple_watch_se_3__25.png" alt="Apple Watch SE 3">
-      </div>
-    </div>
-  </article>
-
-  <!-- WATCH ULTRA 3 -->
-  <article class="tile tile--dark">
-    <div class="tile__inner">
-      <div class="tile__content">
-        <img src="assets/images/apple_watch_ultra_3_logo.png" alt="">
-        
-        <p class="urkraft">Ren urkraft.</p>
-        <p class="meta meta--dark">Släpps 19 september</p>
-        
-           <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Förbeställ</a>
-    </div>
-      </div>
-      <div class="tile__image">
-        <img src="assets/images/apple_watch_ultra_3__25.png" alt="Apple Watch Ultra 3">
-      </div>
-    </div>
-  </article>
-</section>
-<!-- ===== Seventh section for iPad Air and Trade In ===== -->
-
-<section class="two-up">
-  <!-- iPad Air (light gradient) -->
-  <article class="tile tile--light tile--gradient">
-    <div class="tile__inner">
-      <div class="tile__content">
-        <h2>iPad <span class="accent">air</span></h2>
-        <p>Nu superladdad med M3-chippet.</p>
-           <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Läs mer</a>
-      <a href="#" class="btn btn-outline">Köp</a>
-    </div>
-        
-        <div class="tile__image">
-        <img src="assets/images/iPad-air.jpg" alt="iPad Air lineup">
-      </div>
-    </div>
-  </article>
-
-  <!-- Trade In (light) -->
-  <article class="tile tile--light">
-    <div class="tile__inner">
-      <div class="tile__content">
-        <h2> Trade In</h2>
-        <p>Få 1 600 kr–6 860 kr tillgodo<br>när du byter in iPhone 13 eller senare.</p>
-              <div class="hero-ctas">
-      <a href="#" class="btn btn-primary">Få ett inbytesvärde</a>
-      
-    </div
-        
-      
-     class="tile__image">
-        <img src="assets/images/tradin2.png" alt="Apple Trade In with iPhone">
-      </div>
-    </div>
-  </article>
-</section>
-
-
-
-
-
-
+      <section class="section bg-dark center hero-pro ">
+        <div class="wrap">
+          <h1 class="h1">iPhone 17 Pro</h1>
+          <p class="lead">Helt klart Pro.</p>
+          <p class="meta">Släpps 19 september</p>
+          <div class="ctas">
+            <a
+              class="btn btn--primary"
+              href="https://www.apple.com/se/iphone-17-pro/"
+              >Läs mer</a
+            >
+            <a
+              class="btn btn--outline"
+              href="https://www.apple.com/se/shop/buy-iphone/iphone-17-pro"
+              >Förbeställ</a
+            >
+          </div>
+          <picture class="stage">
+            <source
+              media="(max-width:734px)"
+              srcset="assets/images/iphone_17_mobile-25.png"
+            />
+            <img
+              src="assets/images/iphone_17_pro__2025.png"
+              alt="iPhone 17 Pro – orange"
+              loading="lazy"
+            />
+          </picture>
+        </div>
       </section>
+
+      <!-- ============ iPhone Air (light hero, full-bleed art) ============ -->
+      <!-- SE: Ljus hjältesektion med bild i full bredd.  EN: Light hero with full-width art. -->
+      <section class="section bg-light center hero-air" id="iphone-air">
+        <div class="wrap">
+          <img
+            class="logo"
+            src="assets/images/iphone_air_logo.png"
+            alt="iPhone Air"
+          />
+          <p class="lead lead--lg">
+            Tidernas tunnaste iPhone.<br />Med oanade krafter.
+          </p>
+          <p class="meta">Släpps 19 september</p>
+
+          <!-- SE: Liten överlappning mot bilden. EN: Slight overlap into image. -->
+          <div class="ctas ctas--overlap">
+            <a class="btn btn--primary">Läs mer</a>
+            <a class="btn btn--outline">Förbeställ</a>
+          </div>
+        </div>
+
+        <picture class="stage stage--flush">
+          <source
+            media="(max-width:768px)"
+            srcset="assets/images/iphone_air__w2025.png"
+          />
+          <img
+            src="assets/images/Apple-air-hand4.png"
+            alt="iPhone Air side profile"
+          />
+        </picture>
+      </section>
+
+      <!-- ============ iPhone 17 (standard hero) ============ -->
+      <section class="section bg-light center" id="iphone-17">
+        <div class="wrap">
+          <h2 class="h1">
+            <span class="grad">iPhone</span> <span class="grad2">17</span>
+          </h2>
+
+          <p class="lead">
+            Ännu mer tilltalande. Ännu mer slitstark. Vår bästa skärm någonsin
+            med ProMotion upp till 120&nbsp;Hz och Ceramic&nbsp;Shield&nbsp;2.
+            Avancerat 48&nbsp;MP Fusion-dubbelkamerasystem.
+          </p>
+          <p class="meta">
+            Förbeställ från 12 september kl. 14.00 · Släpps 19 september
+          </p>
+
+          <div class="ctas">
+            <a class="btn btn--primary">Läs mer</a>
+            <a class="btn btn--outline">Visa priser</a>
+          </div>
+
+          <picture class="stage">
+            <source
+              media="(max-width:734px)"
+              srcset="assets/images/iphone_17__mobile-25.png"
+            />
+            <img
+              src="assets/images/iphone_17__f2tilltalande-Avan.png"
+              alt="iPhone 17 i flera färger"
+              loading="lazy"
+            />
+          </picture>
+        </div>
+      </section>
+
+      <!-- ============ Two-up: AirPods Pro 3 + Watch Series 11 ============ -->
+      <section class="section bg-white">
+        <div class="grid2">
+          <!-- AirPods Pro 3 -->
+          <article class="tile light center">
+            <div class="tile__content">
+              <h3 class="h2">AirPods Pro 3</h3>
+              <p class="lead-sm">
+                Världens bästa aktiva brusreducering för in ear-hörlurar.
+              </p>
+              <p class="meta">Släpps 19 september</p>
+              <div class="ctas">
+                <a class="btn btn--primary">Läs mer</a>
+                <a class="btn btn--outline">Förbeställ</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/airpods_pro_3__25.png"
+              alt="AirPods Pro 3"
+            />
+          </article>
+
+          <!-- Watch Series 11 -->
+          <article class="tile light center">
+            <div class="tile__content">
+              <h3 class="h2">WATCH SERIES 11</h3>
+              <p class="lead-sm">Det ultimata sättet att följa din hälsa.</p>
+              <p class="meta">Släpps 19 september</p>
+              <div class="ctas">
+                <a class="btn btn--primary">Läs mer</a>
+                <a class="btn btn--outline">Förbeställ</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/apple_watch_series_11__25.jpg"
+              alt="Apple Watch Series 11"
+            />
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ Two-up: Watch SE 3 + Watch Ultra 3 ============ -->
+      <section class="section bg-white">
+        <div class="grid2">
+          <!-- Watch SE 3 -->
+          <article class="tile light center">
+            <div class="tile__content">
+              <h3 class="h2">WATCH SE 3</h3>
+              <p class="lead-sm">Jogga. Snacka. Logga. Digga.</p>
+              <p class="meta">Släpps 19 september</p>
+              <div class="ctas">
+                <a class="btn btn--primary">Läs mer</a>
+                <a class="btn btn--outline">Förbeställ</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/apple_watch_se_3__25.png"
+              alt="Apple Watch SE 3"
+            />
+          </article>
+
+          <!-- Watch Ultra 3 -->
+          <article class="tile dark center">
+            <div class="tile__content">
+              <h3 class="h2 white">WATCH ULTRA 3</h3>
+              <p class="lead-sm white">Ren urkraft.</p>
+              <p class="meta meta--dark">Släpps 19 september</p>
+              <div class="ctas">
+                <a class="btn btn--primary">Läs mer</a>
+                <a class="btn btn--outline">Förbeställ</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/apple_watch_ultra_3__25.png"
+              alt="Apple Watch Ultra 3"
+            />
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ Two-up: iPad Air + Trade In ============ -->
+      <section class="section bg-white">
+        <div class="grid2">
+          <!-- iPad Air -->
+          <article class="tile light center gradient">
+            <div class="tile__content">
+              <h3 class="h2">iPad <span class="accent">air</span></h3>
+              <p class="lead-sm">Nu superladdad med M3-chippet.</p>
+              <div class="ctas">
+                <a class="btn btn--primary">Läs mer</a>
+                <a class="btn btn--outline">Köp</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/iPad-air.jpg"
+              alt="iPad Air lineup"
+            />
+          </article>
+
+          <!-- Trade In (fixed malformed HTML) -->
+          <article class="tile light center">
+            <div class="tile__content">
+              <h3 class="h2">Trade In</h3>
+              <p class="lead-sm">
+                Få 1 600 kr–6 860 kr tillgodo<br />när du byter in iPhone 13
+                eller senare.
+              </p>
+              <div class="ctas">
+                <a class="btn btn--primary">Få ett inbytesvärde</a>
+              </div>
+            </div>
+            <img
+              class="tile__art"
+              src="assets/images/tradin2.png"
+              alt="Apple Trade In"
+            />
+          </article>
+        </div>
+      </section>
+
       <section></section>
       <section></section>
       <section></section>

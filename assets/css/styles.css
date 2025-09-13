@@ -10,14 +10,13 @@
   /* Layout */
   --maxw: 1120px;           /* content max width */
 
-  /* Colors */
-  --bg-black: #000;         /* dark surfaces */
+   --bg-black: #000;         
   --text: #d2d2d7;          /* text on dark backgrounds (header/body on black) */
-  --text-dark: #1d1d1f;     /* text on light backgrounds (sections/tiles) */
-  --light: #f5f5f7;         /* Apple light gray for tiles/hero bg */
-  --muted: #6e6e73;         /* secondary text */
-  --blue: #0071e3;          /* CTA blue */
-  --ring: rgba(255,255,255,.25); /* focus ring for dark themes */
+  --text-dark: #1d1d1f;     
+  --light: #f5f5f7;         
+  --muted: #6e6e73;         
+  --blue: #0071e3;          
+  --ring: rgba(255,255,255,.25); 
 
   /* Navbar height (page offset) */
   --nav-h: 44px;            /* mobile */
@@ -73,15 +72,18 @@ img {
    NAVBAR
 ========================================= */
 .nav-wrapper {
-  background: rgba(0, 0, 0, 0.8);
+  background: #1d1d1f;
+
   font-size: 0.75em;
   font-weight: 200;
 }
-.navbar.fixed-top {
-  z-index: 1045;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(0, 0, 0, 0.8);
+
+.navbar.fixed-top{
+  z-index:1045;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  background:#1d1d1f;              /* solid, no rgba transparency */
 }
+
 .nav-wrapper .navbar {
   padding: 0;
   min-height: 44px;
@@ -246,10 +248,19 @@ img {
 
 .section{margin:0;background:#fff;position:relative;z-index:1;}
 .section .wrap{max-width:var(--max);margin:0 auto;padding:56px 16px;}
+
 .center{text-align:center;}
-.bg-dark{background:#000;color:#fff;}
+.bg-dark{ background:#000 !important; color:#fff; }
 .bg-light{background:var(--light);}
 .bg-white{background:#fff;}
+
+
+/* Subtle divider between sections */
+section + section {
+  border-top: 20px solid #ffffff; /* white gap between sections */
+}
+
+
 
 /* Typografi / Typography */
 .h1{font:700 clamp(2.5rem,5vw,3.5rem)/1.1 system-ui;}
@@ -292,14 +303,170 @@ img {
 /* Responsivt / Responsive tweaks */
 @media(max-width:768px){
   .section .wrap{padding:44px 16px;}
-  .ctas{flex-direction:column}
-  .btn{width:200px;margin:0 auto;}
-  .logo{max-width:220px;}
+  .ctas{flex-direction:row}
+  .btn{width:150px;margin:0 auto;}
+  .logo{max-width:200px;}
+}
+
+
+.hero-pro .ctas{
+  margin-bottom: clamp(16px, 4vw, 28px); /* extra gap above the image */
+}
+
+/* Default/tablet/desktop */
+.hero-pro .stage img{
+  display:block;
+  width: min(820px, 80vw);   /* cap size so it never dominates */
+  height:auto;
+  margin: clamp(18px, 4vw, 32px) auto 0;
 }
 
 
 
+/* Phones (≤734px): shrink further */
+@media (max-width: 734px){
+  .hero-pro .stage img{
+    width: min(420px, 88vw); /* much smaller on small screens */
+    margin-top: clamp(16px, 5vw, 24px);
+  }
+}
 
 
+/* Make the whole hero more compact on phones */
+@media (max-width: 734px){
+
+  /* tighter padding */
+  .section.hero-pro .wrap{
+ padding: 28px 12px 32px;
+  }
+
+  /* smaller title & texts */
+  .section.hero-pro .lead {
+    font-size: clamp(.8rem, 3vw, .95rem);
+    margin-bottom: 2px;
+  }
 
 
+   .section.hero-pro .meta {
+    font-size: clamp(.7rem, 2.6vw, .85rem);
+    margin-top: 2px;
+  }
+
+  .section.hero-pro .ctas {
+  display: flex;
+  flex-wrap: wrap;          /* let them wrap if too tight */
+  justify-content: center;
+  gap: 10px;                 /* space between buttons */
+  margin-top: 14px;
+  flex-direction: row;       /* ← force row layout */
+}
+
+ .section.hero-pro .btn {
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  white-space: nowrap;       /* stop text from breaking */
+}
+
+  /* image: actually smaller than before */
+  .section.hero-pro .stage{ margin-top: 16px; }
+  .section.hero-pro .stage img{
+    width: min(250px, 72vw);    /* ↓ from 420px/88vw */
+    margin-top: 14px;
+  }
+}
+
+/* ---------- fixes ---------- */
+.section .wrap {                /* fix var name */
+  max-width: var(--maxw);
+}
+
+/* ---------- global mobile scaling (≤734px) ---------- */
+@media (max-width: 734px){
+
+  /* Tighter section padding */
+  .section .wrap{
+    padding: 28px 12px 30px;
+  }
+
+  /* Headings + text (fluid via clamp) */
+  .section .h1{
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .section .h2{
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
+  }
+  .section .lead{
+    font-size: clamp(.8rem, 3vw, .95rem);
+    margin-bottom: 2px;
+  }
+  .section .meta{
+    font-size: clamp(.72rem, 2.6vw, .85rem);
+    margin-top: 2px;
+  }
+
+  /* Stage / images (applies to all sections) */
+  .section .stage{ margin-top: 16px; }
+  .section .stage img{
+    width: min(360px, 74vw);      /* smaller than desktop; fluid */
+    height: auto;
+    margin: 14px auto 0;
+  }
+
+  /* CTAs (side-by-side, shrink dynamically) */
+  .section .ctas{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: clamp(6px, 2vw, 10px);
+    flex-wrap: nowrap;            /* keep on one line; will shrink */
+  }
+
+  /* Override any earlier fixed button widths */
+  .section .btn{
+    width: auto !important;
+    white-space: nowrap;
+    /* fluid padding + font size */
+    padding: clamp(7px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
+    font-size: clamp(.78rem, 2.6vw, .9rem);
+    line-height: 1;
+  }
+
+  /* If the viewport gets very narrow, allow graceful wrap */
+  @supports (width: 100cqw){
+    .section .ctas{ flex-wrap: wrap; }
+  }
+}
+
+/* ---------- hero-pro desktop/tablet cap stays the same ---------- */
+.hero-pro .stage img{
+  display:block;
+  width: min(820px, 80vw);
+  height:auto;
+  margin: clamp(18px, 4vw, 32px) auto 0;
+}
+
+.section .ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15;                 /* ← remove space between buttons */
+}
+
+.section .ctas .btn {
+  flex: 1 1 0;
+  max-width: 160px;
+  text-align: center;
+  margin: 0;              /* ← remove any side margins */
+  border-radius: 999px;   /* keeps pill shape */
+}
+
+/* Slightly smaller on very small phones */
+@media (max-width: 500px){
+  .section .ctas .btn {
+    max-width: 100px;
+    font-size: 0.7rem;
+    padding: 8px 8px;
+  }
+}
