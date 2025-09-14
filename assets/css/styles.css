@@ -697,3 +697,69 @@ section + section {
 #tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-4"]{
   display:block;
 }
+
+
+
+
+/* Base footer look */
+.footer{
+  background:#f5f5f7;
+  color:#6e6e73;
+  font-size:13px;
+  line-height:1.5;
+  padding:2rem 1rem;
+}
+.footer a{ color:#424245; text-decoration:none; }
+.footer a:hover{ text-decoration:underline; }
+.footer hr{ border:0; border-top:1px solid #d2d2d7; margin:1.5rem auto; max-width:1200px; }
+
+/* Legal */
+.footer__legal{ max-width:1000px; margin:0 auto 1.5rem; }
+.footer__legal p{ margin:.75rem 0; }
+
+/* Accordion / links */
+.footer .accordion{
+  max-width:1200px;
+  margin:0 auto 2rem;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+}
+.acc-col{ border-bottom:1px solid #d2d2d7; padding-bottom:.5rem; }
+.acc-toggle{ position:absolute; left:-9999px; }
+.acc-summary{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:.8rem 0; font-weight:600; color:#1d1d1f; cursor:pointer; user-select:none;
+}
+.acc-summary::after{
+  content:""; width:10px; height:10px;
+  border:solid #6e6e73; border-width:0 2px 2px 0;
+  transform:rotate(-45deg); transition:transform .2s;
+}
+.acc-panel{ display:none; list-style:none; margin:0 0 .75rem; padding:0; }
+.acc-panel li{ margin:.35rem 0; }
+.acc-toggle:checked + .acc-summary::after{ transform:rotate(135deg); }
+.acc-toggle:checked + .acc-summary + .acc-panel{ display:block; }
+
+/* Shop more line */
+.footer__shopmore{ max-width:1000px; margin:0 auto 1.5rem; font-size:12px; }
+
+/* Bottom bar */
+.footer__bottom{
+  max-width:1200px; margin:0 auto; padding-top:1rem; border-top:1px solid #d2d2d7;
+  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center;
+  font-size:12px;
+}
+.footer__bottom ul{ list-style:none; display:flex; flex-wrap:wrap; gap:1rem; margin:0; padding:0; }
+
+/* Desktop: grid columns, expanded, no chevrons */
+@media (min-width:768px){
+  .footer .accordion{
+    grid-template-columns:repeat(5, minmax(180px,1fr));
+    gap:2rem;
+  }
+  .acc-col{ border:0; padding-bottom:0; }
+  .acc-summary{ pointer-events:none; padding:0; }
+  .acc-summary::after{ display:none; }
+  .acc-panel{ display:block !important; margin-top:.5rem; }
+}
