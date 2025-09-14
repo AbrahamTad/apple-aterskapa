@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
@@ -373,7 +373,7 @@
     <main>
       <!-- ============ iPhone 17 Pro (dark hero) ============ -->
 
-      <section class="section bg-dark center hero-pro ">
+      <section class="section bg-dark center hero-pro">
         <div class="wrap">
           <h1 class="h1">iPhone 17 Pro</h1>
           <p class="lead">Helt klart Pro.</p>
@@ -438,7 +438,7 @@
       </section>
 
       <!-- ============ iPhone 17 (standard hero) ============ -->
-      <section class="section bg-light center" id="iphone-17">
+      <!-- <section class="section bg-light center" id="iphone-17">
         <div class="wrap">
           <h2 class="h1">
             <span class="grad">iPhone</span> <span class="grad2">17</span>
@@ -470,7 +470,32 @@
             />
           </picture>
         </div>
-      </section>
+      </section> -->
+
+<!-- ============ iPhone 17 (standard hero) ============ -->
+<section class="section bg-light center iphone17-hero" id="iphone-17">
+  <div class="wrap">
+    <h2 class="h1 iphone17-title">iPhone 17</h2>
+
+    <p class="iphone17-subtitle">Spektakulör.</p>
+    <p class="meta iphone17-meta">Släpps 19 september</p>
+
+    <div class="ctas">
+      <a class="btn btn--primary">Läs mer</a>
+      <a class="btn btn--outline">Förbeställ</a>
+    </div>
+
+    <picture class="stage">
+      <source media="(max-width:734px)" srcset="assets/images/iphone_17__mobile-25.png" />
+      <img
+        src="assets/images/iphone_17__f2tilltalande-Avan.png"
+        alt="iPhone 17 i flera färger"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+</section>
+
 
       <!-- ============ Two-up: AirPods Pro 3 + Watch Series 11 ============ -->
       <section class="section bg-white">
@@ -498,7 +523,12 @@
           <!-- Watch Series 11 -->
           <article class="tile light center">
             <div class="tile__content">
-              <h3 class="h2">WATCH SERIES 11</h3>
+            
+              <h3 class="h2">
+                <span class="apple-logo"></span> <strong>WATCH</strong> SERIES
+                11
+              </h3>
+              
               <p class="lead-sm">Det ultimata sättet att följa din hälsa.</p>
               <p class="meta">Släpps 19 september</p>
               <div class="ctas">
@@ -508,7 +538,7 @@
             </div>
             <img
               class="tile__art"
-              src="assets/images/apple_watch_series_11__25.jpg"
+              src="assets/images/apple-watch-series-11.png"
               alt="Apple Watch Series 11"
             />
           </article>
