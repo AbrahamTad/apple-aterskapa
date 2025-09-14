@@ -622,3 +622,78 @@ section + section {
 /* Optional: make hero image breathe */
 #iphone-17 .stage { display:block; margin:.5rem auto 0; max-width:980px; }
 #iphone-17 .stage img { width:100%; height:auto; display:block; }
+
+.tv-gallery.tv-gallery-slider {
+  --gap: 0;
+  --i: 0;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+/* hide radios */
+.tv-gallery-slider > input[type="radio"]{ position:absolute; inset:-9999px; }
+
+/* viewport: full width */
+.tv-gallery__viewport{
+  width: 100%;
+  overflow: hidden;
+}
+
+/* track: horizontal slides */
+.tv-gallery__track{
+  display: flex;
+  transition: transform .6s cubic-bezier(.645,.045,.355,1);
+  transform: translateX(calc(var(--i) * -100vw));
+}
+
+/* each card = full width */
+.tv-card{
+  flex: 0 0 100vw;
+  height: 80vh; /* large like Apple TV+ */
+  position: relative;
+}
+.tv-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* arrows */
+.tv-gallery__arrows{ pointer-events:none; }
+.tv-arrow{
+  pointer-events:auto;
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:54px; height:54px; border-radius:50%;
+  background: rgba(255,255,255,.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  cursor:pointer; display:none;
+}
+.tv-arrow--left{ left:20px; }
+.tv-arrow--right{ right:20px; }
+.tv-arrow::before{
+  content:""; position:absolute; inset:0; margin:auto;
+  width:12px; height:12px; border: solid #1d1d1f; border-width:0 4px 4px 0;
+  transform: rotate(135deg);
+}
+.tv-arrow--right::before{ transform: rotate(-45deg); }
+
+/* radio → index */
+#tvg-0:checked ~ .tv-gallery__viewport{ --i: 0; }
+#tvg-1:checked ~ .tv-gallery__viewport{ --i: 1; }
+#tvg-2:checked ~ .tv-gallery__viewport{ --i: 2; }
+#tvg-3:checked ~ .tv-gallery__viewport{ --i: 3; }
+#tvg-4:checked ~ .tv-gallery__viewport{ --i: 4; }
+
+/* show only the right arrow pair for current state */
+#tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-0"],
+#tvg-1:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-1"],
+#tvg-2:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-2"],
+#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-3"],
+#tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-1"],
+#tvg-1:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-2"],
+#tvg-2:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-3"],
+#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-4"]{
+  display:block;
+}
