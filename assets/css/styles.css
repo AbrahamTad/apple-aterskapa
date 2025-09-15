@@ -2,187 +2,501 @@
    GLOBAL TOKENS / VARIABLER
    SV: Design-variabler. EN: Design tokens.
 ========================================================= */
-:root{
-  /* Layout widths (heroes can use --maxw; nav/footer use Apple width) */
-  --maxw: 1120px;        /* general content max width */
-  --apple-max: 980px;    /* Apple nav/footer width */
-  --apple-gutter: 22px;  /* Apple side padding */
+:root {
+  /* Layout widths (heroes can use --maxw; nav/footer) */
+  --maxw: 1120px; /* general content max width */
+  --apple-max: 980px; /* Apple nav/footer width */
+  --apple-gutter: 22px; /* Apple side padding */
 
   /* Colors */
-  --bg-black:#000; --text:#d2d2d7; --text-dark:#1d1d1f; --light:#f5f5f7;
-  --muted:#6e6e73; --blue:#0071e3; --ring:rgba(255,255,255,.25);
+  --bg-black: #000;
+  --text: #d2d2d7;
+  --text-dark: #1d1d1f;
+  --light: #f5f5f7;
+  --muted: #6e6e73;
+  --blue: #0071e3;
+  --ring: rgba(255, 255, 255, 0.25);
 
   /* Fixed nav height / fast nav-höjd */
-  --nav-h:44px;          /* mobile */
+  --nav-h: 44px; /* mobile */
 }
-@media (min-width:992px){ :root{ --nav-h:48px; } }  /* desktop */
+@media (min-width: 992px) {
+  :root {
+    --nav-h: 48px;
+  }
+} /* desktop */
 
 /* =========================================================
    BASE / GRUND
 ========================================================= */
-*{ box-sizing:border-box; }
-html,body{ height:100%; }
-body{
-  margin:0; background:#000; color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Icons",Helvetica Neue,Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #000;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons",
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 /* SV: Skjut ner innehållet under fixed navbar | EN: Offset content below fixed navbar */
-main{ padding-top:var(--nav-h); }
+main {
+  padding-top: var(--nav-h);
+}
 
-a{ color:#06c; } img{ max-width:100%; display:block; }
-.white{ color:#fff; } .black{ color:#1d1d1f; } .grey{ color:#86868b; }
-.top-50{ margin-top:50px; } .top-100{ margin-top:100px; }
+a {
+  color: #06c;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+.white {
+  color: #fff;
+}
+.black {
+  color: #1d1d1f;
+}
+.grey {
+  color: #86868b;
+}
+.top-50 {
+  margin-top: 50px;
+}
+.top-100 {
+  margin-top: 100px;
+}
 
 /* =========================================================
    NAVBAR
-   SV: Apple-lik kompakt toppnav. EN: Compact Apple-like top nav.
-========================================================= */
-.nav-wrapper{ background:#1d1d1f; font-size:.75em; font-weight:200; border-bottom:1px solid rgba(255,255,255,.08); }
-.navbar.fixed-top{ z-index:1045; background:#1d1d1f; }
-.nav-wrapper .container{ max-width:var(--apple-max); padding:0 var(--apple-gutter); margin-inline:auto; }
-.nav-wrapper .navbar{ padding:0; min-height:44px; position:relative; z-index:50; }
-.nav-wrapper .navbar-nav{ gap:20px; }
-.nav-wrapper .navbar-brand img{ width:19px; height:auto; }
-.nav-wrapper .nav-link{ color:#fff !important; font:400 12px/44px inherit; padding:0 12px; display:flex; align-items:center; }
+   ========================================================= */
+.nav-wrapper {
+  background: #1d1d1f;
+  font-size: 0.75em;
+  font-weight: 200;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.navbar.fixed-top {
+  z-index: 1045;
+  background: #1d1d1f;
+}
+.nav-wrapper .container {
+  max-width: var(--apple-max);
+  padding: 0 var(--apple-gutter);
+  margin-inline: auto;
+}
+.nav-wrapper .navbar {
+  padding: 0;
+  min-height: 44px;
+  position: relative;
+  z-index: 50;
+}
+.nav-wrapper .navbar-nav {
+  gap: 20px;
+}
+.nav-wrapper .navbar-brand img {
+  width: 19px;
+  height: auto;
+}
+.nav-wrapper .nav-link {
+  color: #fff !important;
+  font: 400 12px/44px inherit;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
 
 /* Right-side icons / Ikoner till höger */
-.nav-icons{ display:flex; align-items:center; gap:14px; }
-.nav-icons :is(.nav-link,.navbar-toggler){ padding:0; margin:0; line-height:0; display:flex; align-items:center; }
-.navbar-toggler{ border:none; color:#f5f5f7; font-size:18px; padding:0 8px; }
-.nav-icons img{ width:18px; height:18px; filter:brightness(95%); transition:filter .2s; }
-.nav-icons img:hover{ filter:brightness(120%); }
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nav-icons :is(.nav-link, .navbar-toggler) {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+.navbar-toggler {
+  border: none;
+  color: #f5f5f7;
+  font-size: 18px;
+  padding: 0 8px;
+}
+.nav-icons img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(95%);
+  transition: filter 0.2s;
+}
+.nav-icons img:hover {
+  filter: brightness(120%);
+}
 
 /* Mega dropdown */
-.has-mega{ position:static; }
-.mega-menu{
-  position:absolute; left:0; right:0; top:100%;
-  background:#1d1d1f; border-top:1px solid rgba(255,255,255,.06);
-  padding:24px 0 40px;
-  opacity:0; visibility:hidden; transform:translateY(6px);
-  transition:opacity .18s, transform .18s, visibility 0s .18s;
-  pointer-events:none; z-index:1000;
+.has-mega {
+  position: static;
 }
-.mega-inner{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:48px; }
-.mega-col ul{ list-style:none; margin:0; padding:0; }
-.mega-title{ color:#9aa0a6; font:400 12px/1.2 inherit; margin:0 0 10px; }
-.mega-col a{ color:#f5f5f7; text-decoration:none; line-height:1.7; padding:2px 0; display:inline-block; }
-.mega-col a:hover{ color:#fff; }
-.mega-col:first-child ul>li>a{ font-size:28px; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
-.mega-sub a{ font-size:13px !important; font-weight:600; color:#a6c8ff; }
+.mega-menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  background: #1d1d1f;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 0 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s, transform 0.18s, visibility 0s 0.18s;
+  pointer-events: none;
+  z-index: 1000;
+}
+.mega-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 48px;
+}
+.mega-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mega-title {
+  color: #9aa0a6;
+  font: 400 12px/1.2 inherit;
+  margin: 0 0 10px;
+}
+.mega-col a {
+  color: #f5f5f7;
+  text-decoration: none;
+  line-height: 1.7;
+  padding: 2px 0;
+  display: inline-block;
+}
+.mega-col a:hover {
+  color: #fff;
+}
+.mega-col:first-child ul > li > a {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.mega-sub a {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #a6c8ff;
+}
 
-@media (min-width:992px){
-  .nav-wrapper .navbar{ display:flex; align-items:center; justify-content:center; }
-  .nav-wrapper .navbar-collapse{ flex-grow:0; overflow:visible; position:static; display:block !important; }
-  .navbar-brand{ margin-right:24px; }
-  .navbar-nav>.nav-item:last-child{ margin-right:48px; }
-  .nav-icons{ gap:24px; }
-  .has-mega:hover>.mega-menu, .has-mega:focus-within>.mega-menu{
-    opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto;
+@media (min-width: 992px) {
+  .nav-wrapper .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-wrapper .navbar-collapse {
+    flex-grow: 0;
+    overflow: visible;
+    position: static;
+    display: block !important;
+  }
+  .navbar-brand {
+    margin-right: 24px;
+  }
+  .navbar-nav > .nav-item:last-child {
+    margin-right: 48px;
+  }
+  .nav-icons {
+    gap: 24px;
+  }
+  .has-mega:hover > .mega-menu,
+  .has-mega:focus-within > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
 }
 
 /* =========================================================
    SECTIONS / SEKTIONER
 ========================================================= */
-.section{ background:#fff; position:relative; z-index:1; }
-.section .wrap{ max-width:var(--maxw); margin:0 auto; padding:56px 16px; }
-.center{text-align:center;}
-.bg-dark{ background:#000 !important; color:#fff; }
-.bg-light{ background:var(--light); }
-.bg-white{ background:#fff; }
+.section {
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+.section .wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 56px 16px;
+}
+.center {
+  text-align: center;
+}
+.bg-dark {
+  background: #000 !important;
+  color: #fff;
+}
+.bg-light {
+  background: var(--light);
+}
+.bg-white {
+  background: #fff;
+}
 
 /* SV: Tydlig vit distans mellan sektioner | EN: White gap between sections */
-section+section{ border-top:20px solid #fff; }
+section + section {
+  border-top: 20px solid #fff;
+}
 
 /* Typography / Typografi */
-.h1{ font:700 clamp(2.5rem,5vw,3.5rem)/1.1 system-ui; }
-.h2{ font:700 clamp(1.6rem,4vw,2.2rem)/1.2 system-ui; }
-.lead{ font-size:clamp(1.1rem,2.2vw,1.5rem); margin:0; color:var(--text); }
-.lead--lg{ font-size:clamp(1.25rem,2.6vw,1.7rem); }
-.lead-sm{ font-size:1.05rem; margin:0 0 6px; }
-.meta{ color:var(--muted); margin:6px 0 14px; }
-.grad{ background:linear-gradient(90deg,#9a74ff,#64b4ff 40%,#4fe28a); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.grad2{ background:linear-gradient(90deg,#7ac0ff,#6fe08f); -webkit-background-clip:text; background-clip:text; color:transparent; }
-.logo{ margin:0 auto 10px; max-width:280px; height:auto; }
+.h1 {
+  font: 700 clamp(2.5rem, 5vw, 3.5rem) / 1.1 system-ui;
+}
+.h2 {
+  font: 700 clamp(1.6rem, 4vw, 2.2rem) / 1.2 system-ui;
+}
+.lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  margin: 0;
+  color: var(--text);
+}
+.lead--lg {
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+}
+.lead-sm {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+}
+.meta {
+  color: var(--muted);
+  margin: 6px 0 14px;
+}
+.grad {
+  background: linear-gradient(90deg, #9a74ff, #64b4ff 40%, #4fe28a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad2 {
+  background: linear-gradient(90deg, #7ac0ff, #6fe08f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.logo {
+  margin: 0 auto 10px;
+  max-width: 280px;
+  height: auto;
+}
 
 /* Buttons / Knappar (single source of truth) */
-.ctas{ display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; }
-.btn{
-  display:inline-block; padding:12px 26px; border-radius:999px;
-  text-decoration:none; font-weight:600; border:1px solid var(--blue);
-  color:var(--blue); background:transparent; transition:.25s;
+.ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.btn--primary{ background:var(--blue); color:#fff; }
-.btn:hover{ background:#000; border-color:#000; color:#fff; }
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  background: transparent;
+  transition: 0.25s;
+}
+.btn--primary {
+  background: var(--blue);
+  color: #fff;
+}
+.btn:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
 
 /* Stage / Scen (images) */
-.stage{ margin-top:28px; }
-.stage img{ width:100%; height:auto; }
-.hero-air .ctas{ margin:12px 0 -28px; }
-.stage--flush{ margin-top:0; }
+.stage {
+  margin-top: 28px;
+}
+.stage img {
+  width: 100%;
+  height: auto;
+}
+.hero-air .ctas {
+  margin: 12px 0 -28px;
+}
+.stage--flush {
+  margin-top: 0;
+}
 
 /* Two-up grid / Tvåspalt */
-.grid2{ display:grid; gap:12px; max-width:1400px; margin:0 auto; padding:0 16px; }
-@media (min-width:900px){ .grid2{ grid-template-columns:1fr 1fr; gap:16px; } }
-
-.tile{
-  border-radius:16px; overflow:hidden; display:grid; place-items:center;
-  padding:28px 20px; text-align:center;
+.grid2 {
+  display: grid;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-.tile.light{ background:var(--light); color:#000; } /* EN: make text solid black */
-.tile.dark{ background:#000; color:#fff; }
-.tile.gradient{ background:linear-gradient(180deg,#dff0ff 0%,#eff7ff 100%); }
-.tile .tile__content{ max-width:640px; }
-.tile .tile__art{ width:100%; height:auto; margin-top:16px; }
-.meta--dark{ color:#bfbfc3; }
+@media (min-width: 900px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.tile {
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 28px 20px;
+  text-align: center;
+}
+.tile.light {
+  background: var(--light);
+  color: #000;
+} /* EN: make text solid black */
+.tile.dark {
+  background: #000;
+  color: #fff;
+}
+.tile.gradient {
+  background: linear-gradient(180deg, #dff0ff 0%, #eff7ff 100%);
+}
+.tile .tile__content {
+  max-width: 640px;
+}
+.tile .tile__art {
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+}
+.meta--dark {
+  color: #bfbfc3;
+}
 
 /* Hero: iPhone 17 / Layout + spacing */
-.iphone17-hero{ background:#f5f5f7; }
-.iphone17-title{ color:#1d1d1f; font-weight:600; font-size:clamp(2.25rem,4vw,3.5rem); margin:0 0 .25rem; }
-.iphone17-subtitle{ color:#1d1d1f; font-size:clamp(1.25rem,2.2vw,2rem); margin:.25rem 0 .5rem; }
-.iphone17-meta{ color:#6e6e73; font-size:1rem; margin:0 0 1.5rem; }
-#iphone-17 .stage{ margin:.5rem auto 0; max-width:980px; }
+.iphone17-hero {
+  background: #f5f5f7;
+}
+.iphone17-title {
+  color: #1d1d1f;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  margin: 0 0 0.25rem;
+}
+.iphone17-subtitle {
+  color: #1d1d1f;
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  margin: 0.25rem 0 0.5rem;
+}
+.iphone17-meta {
+  color: #6e6e73;
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+}
+#iphone-17 .stage {
+  margin: 0.5rem auto 0;
+  max-width: 980px;
+}
 
 /* Hero: iPhone 17 Pro image cap (one rule only) */
-.hero-pro .ctas{ margin-bottom:clamp(16px,4vw,28px); }
-.hero-pro .stage img{  width: clamp(340px, 58vw, 820px); height:auto; margin:clamp(18px,4vw,32px) auto 0; display: block; }
+.hero-pro .ctas {
+  margin-bottom: clamp(16px, 4vw, 28px);
+}
+.hero-pro .stage img {
+  width: clamp(340px, 58vw, 820px);
+  height: auto;
+  margin: clamp(18px, 4vw, 32px) auto 0;
+  display: block;
+}
 
 /* =========================================================
    RESPONSIVE / RESPONSIVT
 ========================================================= */
-@media (max-width:768px){
-  .section .wrap{ padding:44px 16px; }
-  .logo{ max-width:200px; }
-}
-@media (max-width:734px){
-  .section .wrap{ padding:28px 12px 30px; }
-  .h1{ font-size:clamp(1.4rem,6vw,1.9rem); line-height:1.05; margin-bottom:4px; }
-  .h2{ font-size:clamp(1.1rem,4.8vw,1.4rem); }
-  .lead{ font-size:clamp(.8rem,3vw,.95rem); margin-bottom:2px; }
-  .meta{ font-size:clamp(.72rem,2.6vw,.85rem); margin-top:2px; }
-  .stage{ margin-top:16px; }
-  .stage img{ width:min(360px,74vw); margin:14px auto 0; }
-  .ctas{ gap:clamp(6px,2vw,10px); flex-wrap:nowrap; }
-  .btn{ width:auto; white-space:nowrap; padding:clamp(7px,1.8vw,10px) clamp(12px,3vw,18px); font-size:clamp(.78rem,2.6vw,.9rem); line-height:1; }
-  @supports (width:100cqw){ .ctas{ flex-wrap:wrap; } }
-}
-@media (max-width:500px){
-  .ctas .btn{ max-width:100px; font-size:.7rem; padding:8px 8px; }
-}
-/* Phones ≤734px — shrink further than your global image rule */
-@media (max-width:734px){
-  .section.hero-pro .stage img{
-    /* EN: Smaller ratio than the rest of the site so the phone looks tiny like Apple
-       SV: Mindre förhållande än resten av sidan så telefonen ser liten ut som hos Apple */
-    width: clamp(200px, 48vw, 360px);
+@media (max-width: 768px) {
+  .section .wrap {
+    padding: 44px 16px;
+  }
+  .logo {
+    max-width: 200px;
   }
 }
+@media (max-width: 734px) {
+  .section .wrap {
+    padding: 28px 12px 30px;
+  }
+  .h1 {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .h2 {
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
+  }
+  .lead {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    margin-bottom: 2px;
+  }
+  .meta {
+    font-size: clamp(0.72rem, 2.6vw, 0.85rem);
+    margin-top: 2px;
+  }
+  .stage {
+    margin-top: 16px;
+  }
+  .stage img {
+    width: min(360px, 74vw);
+    margin: 14px auto 0;
+  }
+  .ctas {
+    gap: clamp(6px, 2vw, 10px);
+    flex-wrap: nowrap;
+  }
+  .btn {
+    width: auto;
+    white-space: nowrap;
+    padding: clamp(7px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
+    font-size: clamp(0.78rem, 2.6vw, 0.9rem);
+    line-height: 1;
+  }
+  @supports (width: 100cqw) {
+    .ctas {
+      flex-wrap: wrap;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .ctas .btn {
+    max-width: 100px;
+    font-size: 0.7rem;
+    padding: 8px 8px;
+  }
+}
+/* Phones ≤734px — shrink further than global image rule */
+/* iPhone 17 Pro — hero image (mobile) */
+@media (max-width:734px){
+  .section.hero-pro .stage img{ width: clamp(200px,48vw,360px); }
+}
+
 
 /* Very small phones ≤430px — tiny */
-@media (max-width:430px){
-  .section.hero-pro .stage img{
-    width: clamp(180px, 44vw, 300px);
+@media (max-width: 430px) {
+  .section.hero-pro .stage img { width: clamp(180px, 44vw, 300px);
   }
 }
 
@@ -214,10 +528,10 @@ section+section{ border-top:20px solid #fff; }
   transform: translateX(calc(var(--i) * -100vw));
 }
 
-/* each card = full width */
+/* cards: full viewport width */
 .tv-card {
   flex: 0 0 100vw;
-  height: 80vh; /* large like Apple TV+ */
+  height: 80vh; /* large Apple TV+ */
   position: relative;
 }
 .tv-card img {
@@ -295,10 +609,8 @@ section+section{ border-top:20px solid #fff; }
 }
 
 /* =========================================================
-   FOOTER — Apple width & behavior
-   SV: Samma bredd/stil som Apple. EN: Match Apple width/style.
+   FOOTER 
 ========================================================= */
-/* Footer */
 .footer {
   background: #f5f5f7;
   color: #6e6e73;
@@ -314,8 +626,7 @@ section+section{ border-top:20px solid #fff; }
   text-decoration: underline;
 }
 
-/* SV: HR centrerad och begränsad till Apple-bredd
-   EN: HR centered and constrained to Apple width */
+/* Divider line */
 .footer hr {
   border: 0;
   border-top: 1px solid #d2d2d7;
@@ -347,10 +658,7 @@ section+section{ border-top:20px solid #fff; }
   grid-template-columns: 1fr;
   gap: 1rem;
 }
-.acc-col {
-  border-bottom: 1px solid #d2d2d7;
-  padding-bottom: 0.5rem;
-}
+
 .acc-toggle {
   position: absolute;
   left: -9999px;
@@ -429,10 +737,7 @@ section+section{ border-top:20px solid #fff; }
     grid-template-columns: repeat(5, minmax(180px, 1fr));
     gap: 2rem;
   }
-  .acc-col {
-    border: 0;
-    padding-bottom: 0;
-  }
+
   .acc-summary {
     pointer-events: none;
     padding: 0;
@@ -447,24 +752,26 @@ section+section{ border-top:20px solid #fff; }
 }
 /* SV: "Fler sätt att handla" – samma färger som Apple
    EN: "More ways to shop" – match Apple colors */
-.footer__shopmore{
-  color:#6e6e73;               /* body text grey */
-  font-size:12px;              /* Apple size */
+.footer__shopmore {
+  color: #6e6e73; /* body text grey */
+  font-size: 12px; /* Apple size */
 }
 
-.footer__shopmore a{
-  color:#06c;                  /* Apple blue links */
-  text-decoration:none;
+.footer__shopmore a {
+  color: #06c; /* Apple blue links */
+  text-decoration: none;
 }
 
 .footer__shopmore a:hover,
-.footer__shopmore a:focus-visible{
-  text-decoration:underline;   /* Apple hover/focus behavior */
+.footer__shopmore a:focus-visible {
+  text-decoration: underline; /* Apple hover/focus behavior */
 }
 
-.footer__shopmore a:visited{
-  color:#06c;                  /* keep blue after visit */
+.footer__shopmore a:visited {
+  color: #06c; /* keep blue after visit */
 }
 
 /* optional: tiny active darken like Apple */
-.footer__shopmore a:active{ color:#0040cc; }
+.footer__shopmore a:active {
+  color: #0040cc;
+}
