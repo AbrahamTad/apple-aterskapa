@@ -1,628 +1,192 @@
-/* Base */
-/* =========================================
-   VARIABLES & GLOBALS
-   :root { … } – app-wide design tokens (CSS variables)
+/* =========================================================
+   GLOBAL TOKENS / VARIABLER
+   SV: Design-variabler. EN: Design tokens.
+========================================================= */
+:root{
+  /* Layout widths (heroes can use --maxw; nav/footer use Apple width) */
+  --maxw: 1120px;        /* general content max width */
+  --apple-max: 980px;    /* Apple nav/footer width */
+  --apple-gutter: 22px;  /* Apple side padding */
 
-:root is the top of the document. Variables you define here are available everywhere
-========================================= */
-:root {
-  /* Layout */
-  --maxw: 1120px; /* content max width */
+  /* Colors */
+  --bg-black:#000; --text:#d2d2d7; --text-dark:#1d1d1f; --light:#f5f5f7;
+  --muted:#6e6e73; --blue:#0071e3; --ring:rgba(255,255,255,.25);
 
-  --bg-black: #000;
-  --text: #d2d2d7; /* text on dark backgrounds (header/body on black) */
-  --text-dark: #1d1d1f;
-  --light: #f5f5f7;
-  --muted: #6e6e73;
-  --blue: #0071e3;
-  --ring: rgba(255, 255, 255, 0.25);
+  /* Fixed nav height / fast nav-höjd */
+  --nav-h:44px;          /* mobile */
+}
+@media (min-width:992px){ :root{ --nav-h:48px; } }  /* desktop */
 
-  /* Navbar height (page offset) */
-  --nav-h: 44px; /* mobile */
+/* =========================================================
+   BASE / GRUND
+========================================================= */
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0; background:#000; color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Icons",Helvetica Neue,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
 }
-@media (min-width: 992px) {
-  :root {
-    --nav-h: 48px;
-  } /* desktop */
-}
+/* SV: Skjut ner innehållet under fixed navbar | EN: Offset content below fixed navbar */
+main{ padding-top:var(--nav-h); }
 
-* {
-  box-sizing: border-box;
-}
-html,
-body {
-  height: 100%;
-}
+a{ color:#06c; } img{ max-width:100%; display:block; }
+.white{ color:#fff; } .black{ color:#1d1d1f; } .grey{ color:#86868b; }
+.top-50{ margin-top:50px; } .top-100{ margin-top:100px; }
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons",
-    Helvetica Neue, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-
-  padding-top: var(--nav-h);
-}
-
-a {
-  color: #06c;
-}
-img {
-  max-width: 100%;
-}
-.white {
-  color: #fff;
-}
-.black {
-  color: #1d1d1f;
-}
-.grey {
-  color: #86868b;
-}
-.top-50 {
-  margin-top: 50px;
-}
-.top-100 {
-  margin-top: 100px;
-}
-
-/* =========================================
+/* =========================================================
    NAVBAR
-========================================= */
-.nav-wrapper {
-  background: #1d1d1f;
+   SV: Apple-lik kompakt toppnav. EN: Compact Apple-like top nav.
+========================================================= */
+.nav-wrapper{ background:#1d1d1f; font-size:.75em; font-weight:200; border-bottom:1px solid rgba(255,255,255,.08); }
+.navbar.fixed-top{ z-index:1045; background:#1d1d1f; }
+.nav-wrapper .container{ max-width:var(--apple-max); padding:0 var(--apple-gutter); margin-inline:auto; }
+.nav-wrapper .navbar{ padding:0; min-height:44px; position:relative; z-index:50; }
+.nav-wrapper .navbar-nav{ gap:20px; }
+.nav-wrapper .navbar-brand img{ width:19px; height:auto; }
+.nav-wrapper .nav-link{ color:#fff !important; font:400 12px/44px inherit; padding:0 12px; display:flex; align-items:center; }
 
-  font-size: 0.75em;
-  font-weight: 200;
-}
-
-.navbar.fixed-top {
-  z-index: 1045;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: #1d1d1f; /* solid, no rgba transparency */
-}
-
-.nav-wrapper .navbar {
-  padding: 0;
-  min-height: 44px;
-  position: relative;
-  z-index: 50;
-}
-
-/* Top-level nav links */
-.nav-wrapper .nav-link {
-  color: #fff !important;
-  font-size: 12px;
-  font-weight: 400;
-  height: 44px;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
-}
-.nav-wrapper .nav-link:hover {
-  color: #ffffff !important;
-}
-
-/* Even spacing */
-.nav-wrapper .navbar-nav {
-  gap: 20px;
-}
-
-/* Brand size */
-.nav-wrapper .navbar-brand img {
-  width: 19px;
-  height: auto;
-  display: block;
-}
-
-/* Toggler */
-.nav-wrapper .navbar-toggler {
-  border: none;
-  color: #f5f5f7;
-  font-size: 18px;
-  line-height: 1;
-  padding: 0 8px;
-}
-
-/* Right-side icons */
-.nav-icons {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.nav-icons .nav-link,
-.nav-icons .navbar-toggler {
-  padding: 0;
-  margin: 0;
-  line-height: 0;
-  display: flex;
-  align-items: center;
-}
-.nav-icons img {
-  width: 18px;
-  height: 18px;
-  display: block;
-  filter: brightness(95%);
-  transition: filter 0.2s ease;
-}
-.nav-icons img:hover {
-  filter: brightness(120%);
-}
+/* Right-side icons / Ikoner till höger */
+.nav-icons{ display:flex; align-items:center; gap:14px; }
+.nav-icons :is(.nav-link,.navbar-toggler){ padding:0; margin:0; line-height:0; display:flex; align-items:center; }
+.navbar-toggler{ border:none; color:#f5f5f7; font-size:18px; padding:0 8px; }
+.nav-icons img{ width:18px; height:18px; filter:brightness(95%); transition:filter .2s; }
+.nav-icons img:hover{ filter:brightness(120%); }
 
 /* Mega dropdown */
-.has-mega {
-  position: static;
+.has-mega{ position:static; }
+.mega-menu{
+  position:absolute; left:0; right:0; top:100%;
+  background:#1d1d1f; border-top:1px solid rgba(255,255,255,.06);
+  padding:24px 0 40px;
+  opacity:0; visibility:hidden; transform:translateY(6px);
+  transition:opacity .18s, transform .18s, visibility 0s .18s;
+  pointer-events:none; z-index:1000;
 }
-.mega-menu {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  background: #1d1d1f;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 24px 0 40px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s 0.18s;
-  pointer-events: none;
-  z-index: 1000;
-}
-.mega-inner {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 48px;
-}
-.mega-col ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.mega-title {
-  color: #9aa0a6;
-  font-size: 12px;
-  font-weight: 400;
-  margin: 0 0 10px;
-}
-.mega-col a {
-  display: inline-block;
-  text-decoration: none;
-  color: #f5f5f7;
-  line-height: 1.7;
-  padding: 2px 0;
-}
-.mega-col a:hover {
-  color: #fff;
-}
-.mega-col:first-child ul > li > a {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-}
-.mega-sub a {
-  font-size: 13px !important;
-  font-weight: 600;
-  color: #a6c8ff;
-}
+.mega-inner{ display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:48px; }
+.mega-col ul{ list-style:none; margin:0; padding:0; }
+.mega-title{ color:#9aa0a6; font:400 12px/1.2 inherit; margin:0 0 10px; }
+.mega-col a{ color:#f5f5f7; text-decoration:none; line-height:1.7; padding:2px 0; display:inline-block; }
+.mega-col a:hover{ color:#fff; }
+.mega-col:first-child ul>li>a{ font-size:28px; font-weight:700; letter-spacing:-.01em; line-height:1.25; }
+.mega-sub a{ font-size:13px !important; font-weight:600; color:#a6c8ff; }
 
-@media (min-width: 992px) {
-  .nav-wrapper .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .nav-wrapper .navbar-collapse {
-    flex-grow: 0;
-    overflow: visible;
-    position: static;
-    display: block !important;
-  }
-  .navbar-brand {
-    margin-right: 24px;
-  }
-  .navbar-nav > .nav-item:last-child {
-    margin-right: 48px;
-  }
-  .nav-icons {
-    margin-left: 0;
-    gap: 24px;
-  }
-
-  .has-mega:hover > .mega-menu,
-  .has-mega:focus-within > .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
+@media (min-width:992px){
+  .nav-wrapper .navbar{ display:flex; align-items:center; justify-content:center; }
+  .nav-wrapper .navbar-collapse{ flex-grow:0; overflow:visible; position:static; display:block !important; }
+  .navbar-brand{ margin-right:24px; }
+  .navbar-nav>.nav-item:last-child{ margin-right:48px; }
+  .nav-icons{ gap:24px; }
+  .has-mega:hover>.mega-menu, .has-mega:focus-within>.mega-menu{
+    opacity:1; visibility:visible; transform:translateY(0); pointer-events:auto;
   }
 }
 
 /* =========================================================
-   Sektioner — kompakt bas
-   Sections — compact base styles
+   SECTIONS / SEKTIONER
 ========================================================= */
+.section{ background:#fff; position:relative; z-index:1; }
+.section .wrap{ max-width:var(--maxw); margin:0 auto; padding:56px 16px; }
+.center{text-align:center;}
+.bg-dark{ background:#000 !important; color:#fff; }
+.bg-light{ background:var(--light); }
+.bg-white{ background:#fff; }
 
-.section {
-  margin: 0;
-  background: #fff;
-  position: relative;
-  z-index: 1;
-}
-.section .wrap {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 56px 16px;
-}
+/* SV: Tydlig vit distans mellan sektioner | EN: White gap between sections */
+section+section{ border-top:20px solid #fff; }
 
-.center {
-  text-align: center;
-}
-.bg-dark {
-  background: #000 !important;
-  color: #fff;
-}
-.bg-light {
-  background: var(--light);
-}
-.bg-white {
-  background: #fff;
-}
+/* Typography / Typografi */
+.h1{ font:700 clamp(2.5rem,5vw,3.5rem)/1.1 system-ui; }
+.h2{ font:700 clamp(1.6rem,4vw,2.2rem)/1.2 system-ui; }
+.lead{ font-size:clamp(1.1rem,2.2vw,1.5rem); margin:0; color:var(--text); }
+.lead--lg{ font-size:clamp(1.25rem,2.6vw,1.7rem); }
+.lead-sm{ font-size:1.05rem; margin:0 0 6px; }
+.meta{ color:var(--muted); margin:6px 0 14px; }
+.grad{ background:linear-gradient(90deg,#9a74ff,#64b4ff 40%,#4fe28a); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.grad2{ background:linear-gradient(90deg,#7ac0ff,#6fe08f); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.logo{ margin:0 auto 10px; max-width:280px; height:auto; }
 
-/* Subtle divider between sections */
-section + section {
-  border-top: 20px solid #ffffff; /* white gap between sections */
+/* Buttons / Knappar (single source of truth) */
+.ctas{ display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; }
+.btn{
+  display:inline-block; padding:12px 26px; border-radius:999px;
+  text-decoration:none; font-weight:600; border:1px solid var(--blue);
+  color:var(--blue); background:transparent; transition:.25s;
 }
+.btn--primary{ background:var(--blue); color:#fff; }
+.btn:hover{ background:#000; border-color:#000; color:#fff; }
 
-/* Typografi / Typography */
-.h1 {
-  font: 700 clamp(2.5rem, 5vw, 3.5rem) / 1.1 system-ui;
-}
-.h2 {
-  font: 700 clamp(1.6rem, 4vw, 2.2rem) / 1.2 system-ui;
-}
-.lead {
-  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-  margin: 0;
-  color: var(--text);
-}
-.lead--lg {
-  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
-}
-.lead-sm {
-  font-size: 1.05rem;
-  margin: 0 0 6px;
-}
-.meta {
-  color: var(--muted);
-  margin: 6px 0 14px;
-}
-.white {
-  color: #fff;
-}
-.grad {
-  background: linear-gradient(90deg, #9a74ff, #64b4ff 40%, #4fe28a);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.grad2 {
-  background: linear-gradient(90deg, #7ac0ff, #6fe08f);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.logo {
-  display: block;
-  margin: 0 auto 10px;
-  max-width: 280px;
-  height: auto;
-}
+/* Stage / Scen (images) */
+.stage{ margin-top:28px; }
+.stage img{ width:100%; height:auto; }
+.hero-air .ctas{ margin:12px 0 -28px; }
+.stage--flush{ margin-top:0; }
 
-/* Knappar / Buttons (single source of truth) */
-.ctas {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn {
-  display: inline-block;
-  padding: 12px 26px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1px solid var(--blue);
-  color: var(--blue);
-  background: transparent;
-  transition: 0.25s;
-}
-.btn--primary {
-  background: var(--blue);
-  color: #fff;
-}
-.btn:hover {
-  background: #000;
-  border-color: #000;
-  color: #fff;
-}
+/* Two-up grid / Tvåspalt */
+.grid2{ display:grid; gap:12px; max-width:1400px; margin:0 auto; padding:0 16px; }
+@media (min-width:900px){ .grid2{ grid-template-columns:1fr 1fr; gap:16px; } }
 
-/* Scen / Stage (images) */
-.stage {
-  margin-top: 28px;
+.tile{
+  border-radius:16px; overflow:hidden; display:grid; place-items:center;
+  padding:28px 20px; text-align:center;
 }
-.stage img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-/* iPhone Air: buttons overlap slightly into image */
-.hero-air .ctas {
-  margin-top: 12px;
-  margin-bottom: -28px;
-}
-.stage--flush {
-  margin-top: 0;
-}
+.tile.light{ background:var(--light); color:#000; } /* EN: make text solid black */
+.tile.dark{ background:#000; color:#fff; }
+.tile.gradient{ background:linear-gradient(180deg,#dff0ff 0%,#eff7ff 100%); }
+.tile .tile__content{ max-width:640px; }
+.tile .tile__art{ width:100%; height:auto; margin-top:16px; }
+.meta--dark{ color:#bfbfc3; }
 
-/* Tvåspalt / Two-up grid */
-.grid2 {
-  display: grid;
-  gap: 12px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 16px;
+/* Hero: iPhone 17 / Layout + spacing */
+.iphone17-hero{ background:#f5f5f7; }
+.iphone17-title{ color:#1d1d1f; font-weight:600; font-size:clamp(2.25rem,4vw,3.5rem); margin:0 0 .25rem; }
+.iphone17-subtitle{ color:#1d1d1f; font-size:clamp(1.25rem,2.2vw,2rem); margin:.25rem 0 .5rem; }
+.iphone17-meta{ color:#6e6e73; font-size:1rem; margin:0 0 1.5rem; }
+#iphone-17 .stage{ margin:.5rem auto 0; max-width:980px; }
+
+/* Hero: iPhone 17 Pro image cap (one rule only) */
+.hero-pro .ctas{ margin-bottom:clamp(16px,4vw,28px); }
+.hero-pro .stage img{  width: clamp(340px, 58vw, 820px); height:auto; margin:clamp(18px,4vw,32px) auto 0; display: block; }
+
+/* =========================================================
+   RESPONSIVE / RESPONSIVT
+========================================================= */
+@media (max-width:768px){
+  .section .wrap{ padding:44px 16px; }
+  .logo{ max-width:200px; }
 }
-@media (min-width: 900px) {
-  .grid2 {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+@media (max-width:734px){
+  .section .wrap{ padding:28px 12px 30px; }
+  .h1{ font-size:clamp(1.4rem,6vw,1.9rem); line-height:1.05; margin-bottom:4px; }
+  .h2{ font-size:clamp(1.1rem,4.8vw,1.4rem); }
+  .lead{ font-size:clamp(.8rem,3vw,.95rem); margin-bottom:2px; }
+  .meta{ font-size:clamp(.72rem,2.6vw,.85rem); margin-top:2px; }
+  .stage{ margin-top:16px; }
+  .stage img{ width:min(360px,74vw); margin:14px auto 0; }
+  .ctas{ gap:clamp(6px,2vw,10px); flex-wrap:nowrap; }
+  .btn{ width:auto; white-space:nowrap; padding:clamp(7px,1.8vw,10px) clamp(12px,3vw,18px); font-size:clamp(.78rem,2.6vw,.9rem); line-height:1; }
+  @supports (width:100cqw){ .ctas{ flex-wrap:wrap; } }
+}
+@media (max-width:500px){
+  .ctas .btn{ max-width:100px; font-size:.7rem; padding:8px 8px; }
+}
+/* Phones ≤734px — shrink further than your global image rule */
+@media (max-width:734px){
+  .section.hero-pro .stage img{
+    /* EN: Smaller ratio than the rest of the site so the phone looks tiny like Apple
+       SV: Mindre förhållande än resten av sidan så telefonen ser liten ut som hos Apple */
+    width: clamp(200px, 48vw, 360px);
   }
 }
 
-.tile {
-  border-radius: 16px;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-  padding: 28px 20px;
-  text-align: center;
-}
-.tile.light {
-  background: var(--light);
-  color: var(--text);
-}
-.tile.dark {
-  background: #000;
-  color: #fff;
-}
-.tile.gradient {
-  background: linear-gradient(180deg, #dff0ff 0%, #eff7ff 100%);
-}
-.tile .tile__content {
-  max-width: 640px;
-}
-.tile.light.center .tile__content {
-  color: #000;              /* make text black */
-  opacity: 1;                /* remove any transparency */
-}
-
-.tile.light.center .tile__content h3.h2 {
-  font-weight: 600;          /* make titles bolder */
-  color: #000;
-}
-
-.tile.light.center .tile__content p.lead-sm,
-.tile.light.center .tile__content p.meta {
-  color: #000;                /* make subtext black too */
-  opacity: 1;
-}
-
-.tile .tile__art {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: 16px;
-}
-.meta--dark {
-  color: #bfbfc3;
-}
-
-/* Responsivt / Responsive tweaks */
-@media (max-width: 768px) {
-  .section .wrap {
-    padding: 44px 16px;
-  }
-  .ctas {
-    flex-direction: row;
-  }
-  .btn {
-    width: 150px;
-    margin: 0 auto;
-  }
-  .logo {
-    max-width: 200px;
+/* Very small phones ≤430px — tiny */
+@media (max-width:430px){
+  .section.hero-pro .stage img{
+    width: clamp(180px, 44vw, 300px);
   }
 }
 
-.hero-pro .ctas {
-  margin-bottom: clamp(16px, 4vw, 28px); /* extra gap above the image */
-}
-
-/* Default/tablet/desktop */
-.hero-pro .stage img {
-  display: block;
-  width: min(820px, 80vw); /* cap size so it never dominates */
-  height: auto;
-  margin: clamp(18px, 4vw, 32px) auto 0;
-}
-
-/* Phones (≤734px): shrink further */
-@media (max-width: 734px) {
-  .hero-pro .stage img {
-    width: min(420px, 88vw); /* much smaller on small screens */
-    margin-top: clamp(16px, 5vw, 24px);
-  }
-}
-
-/* Make the whole hero more compact on phones */
-@media (max-width: 734px) {
-  /* tighter padding */
-  .section.hero-pro .wrap {
-    padding: 28px 12px 32px;
-  }
-
-  /* smaller title & texts */
-  .section.hero-pro .lead {
-    font-size: clamp(0.8rem, 3vw, 0.95rem);
-    margin-bottom: 2px;
-  }
-
-  .section.hero-pro .meta {
-    font-size: clamp(0.7rem, 2.6vw, 0.85rem);
-    margin-top: 2px;
-  }
-
-  .section.hero-pro .ctas {
-    display: flex;
-    flex-wrap: wrap; /* let them wrap if too tight */
-    justify-content: center;
-    gap: 10px; /* space between buttons */
-    margin-top: 14px;
-    flex-direction: row; /* ← force row layout */
-  }
-
-  .section.hero-pro .btn {
-    padding: 10px 18px;
-    font-size: 0.9rem;
-    white-space: nowrap; /* stop text from breaking */
-  }
-
-  /* image: actually smaller than before */
-  .section.hero-pro .stage {
-    margin-top: 16px;
-  }
-  .section.hero-pro .stage img {
-    width: min(250px, 72vw); /* ↓ from 420px/88vw */
-    margin-top: 14px;
-  }
-}
-
-/* ---------- fixes ---------- */
-.section .wrap {
-  /* fix var name */
-  max-width: var(--maxw);
-}
-
-/* ---------- global mobile scaling (≤734px) ---------- */
-@media (max-width: 734px) {
-  /* Tighter section padding */
-  .section .wrap {
-    padding: 28px 12px 30px;
-  }
-
-  /* Headings + text (fluid via clamp) */
-  .section .h1 {
-    font-size: clamp(1.4rem, 6vw, 1.9rem);
-    line-height: 1.05;
-    margin-bottom: 4px;
-  }
-  .section .h2 {
-    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
-  }
-  .section .lead {
-    font-size: clamp(0.8rem, 3vw, 0.95rem);
-    margin-bottom: 2px;
-  }
-  .section .meta {
-    font-size: clamp(0.72rem, 2.6vw, 0.85rem);
-    margin-top: 2px;
-  }
-
-  /* Stage / images (applies to all sections) */
-  .section .stage {
-    margin-top: 16px;
-  }
-  .section .stage img {
-    width: min(360px, 74vw); /* smaller than desktop; fluid */
-    height: auto;
-    margin: 14px auto 0;
-  }
-
-  /* CTAs (side-by-side, shrink dynamically) */
-  .section .ctas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(6px, 2vw, 10px);
-    flex-wrap: nowrap; /* keep on one line; will shrink */
-  }
-
-  /* Override any earlier fixed button widths */
-  .section .btn {
-    width: auto !important;
-    white-space: nowrap;
-    /* fluid padding + font size */
-    padding: clamp(7px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
-    font-size: clamp(0.78rem, 2.6vw, 0.9rem);
-    line-height: 1;
-  }
-
-  /* If the viewport gets very narrow, allow graceful wrap */
-  @supports (width: 100cqw) {
-    .section .ctas {
-      flex-wrap: wrap;
-    }
-  }
-}
-
-/* ---------- hero-pro desktop/tablet cap stays the same ---------- */
-.hero-pro .stage img {
-  display: block;
-  width: min(820px, 80vw);
-  height: auto;
-  margin: clamp(18px, 4vw, 32px) auto 0;
-}
-
-.section .ctas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15; /* ← remove space between buttons */
-}
-
-.section .ctas .btn {
-  flex: 1 1 0;
-  max-width: 160px;
-  text-align: center;
-  margin: 0; /* ← remove any side margins */
-  border-radius: 999px; /* keeps pill shape */
-}
-
-/* Slightly smaller on very small phones */
-@media (max-width: 500px) {
-  .section .ctas .btn {
-    max-width: 100px;
-    font-size: 0.7rem;
-    padding: 8px 8px;
-  }
-}
-
-/* layout + spacing */
-.iphone17-hero { background:#f5f5f7; padding-block:rem; }
-.iphone17-title { color:#1d1d1f; font-weight:600; font-size:clamp(2.25rem, 4vw, 3.5rem); margin:0 0 .25rem; }
-.iphone17-subtitle { color:#1d1d1f; font-size:clamp(1.25rem, 2.2vw, 2rem); margin:.25rem 0 .5rem; }
-.iphone17-meta { color:#6e6e73; font-size:1rem; margin:0 0 1.5rem; }
-
-
-#iphone-17 .ctas { display:flex; justify-content:center; gap:1rem; }
-
-/* Optional: make hero image breathe */
-#iphone-17 .stage { display:block; margin:.5rem auto 0; max-width:980px; }
-#iphone-17 .stage img { width:100%; height:auto; display:block; }
-
+/* TV Gallery (Apple TV+ style slider) */
 .tv-gallery.tv-gallery-slider {
   --gap: 0;
   --i: 0;
@@ -632,28 +196,31 @@ section + section {
 }
 
 /* hide radios */
-.tv-gallery-slider > input[type="radio"]{ position:absolute; inset:-9999px; }
+.tv-gallery-slider > input[type="radio"] {
+  position: absolute;
+  inset: -9999px;
+}
 
 /* viewport: full width */
-.tv-gallery__viewport{
+.tv-gallery__viewport {
   width: 100%;
   overflow: hidden;
 }
 
 /* track: horizontal slides */
-.tv-gallery__track{
+.tv-gallery__track {
   display: flex;
-  transition: transform .6s cubic-bezier(.645,.045,.355,1);
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
   transform: translateX(calc(var(--i) * -100vw));
 }
 
 /* each card = full width */
-.tv-card{
+.tv-card {
   flex: 0 0 100vw;
   height: 80vh; /* large like Apple TV+ */
   position: relative;
 }
-.tv-card img{
+.tv-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -661,30 +228,59 @@ section + section {
 }
 
 /* arrows */
-.tv-gallery__arrows{ pointer-events:none; }
-.tv-arrow{
-  pointer-events:auto;
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:54px; height:54px; border-radius:50%;
-  background: rgba(255,255,255,.8);
-  box-shadow: 0 2px 6px rgba(0,0,0,.25);
-  cursor:pointer; display:none;
+.tv-gallery__arrows {
+  pointer-events: none;
 }
-.tv-arrow--left{ left:20px; }
-.tv-arrow--right{ right:20px; }
-.tv-arrow::before{
-  content:""; position:absolute; inset:0; margin:auto;
-  width:12px; height:12px; border: solid #1d1d1f; border-width:0 4px 4px 0;
+.tv-arrow {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: none;
+}
+.tv-arrow--left {
+  left: 20px;
+}
+.tv-arrow--right {
+  right: 20px;
+}
+.tv-arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 12px;
+  height: 12px;
+  border: solid #1d1d1f;
+  border-width: 0 4px 4px 0;
   transform: rotate(135deg);
 }
-.tv-arrow--right::before{ transform: rotate(-45deg); }
+.tv-arrow--right::before {
+  transform: rotate(-45deg);
+}
 
 /* radio → index */
-#tvg-0:checked ~ .tv-gallery__viewport{ --i: 0; }
-#tvg-1:checked ~ .tv-gallery__viewport{ --i: 1; }
-#tvg-2:checked ~ .tv-gallery__viewport{ --i: 2; }
-#tvg-3:checked ~ .tv-gallery__viewport{ --i: 3; }
-#tvg-4:checked ~ .tv-gallery__viewport{ --i: 4; }
+#tvg-0:checked ~ .tv-gallery__viewport {
+  --i: 0;
+}
+#tvg-1:checked ~ .tv-gallery__viewport {
+  --i: 1;
+}
+#tvg-2:checked ~ .tv-gallery__viewport {
+  --i: 2;
+}
+#tvg-3:checked ~ .tv-gallery__viewport {
+  --i: 3;
+}
+#tvg-4:checked ~ .tv-gallery__viewport {
+  --i: 4;
+}
 
 /* show only the right arrow pair for current state */
 #tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-0"],
@@ -694,72 +290,181 @@ section + section {
 #tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-1"],
 #tvg-1:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-2"],
 #tvg-2:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-3"],
-#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-4"]{
-  display:block;
+#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-4"] {
+  display: block;
 }
 
-
-
-
-/* Base footer look */
-.footer{
-  background:#f5f5f7;
-  color:#6e6e73;
-  font-size:13px;
-  line-height:1.5;
-  padding:2rem 1rem;
+/* =========================================================
+   FOOTER — Apple width & behavior
+   SV: Samma bredd/stil som Apple. EN: Match Apple width/style.
+========================================================= */
+/* Footer */
+.footer {
+  background: #f5f5f7;
+  color: #6e6e73;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 2rem 1rem;
 }
-.footer a{ color:#424245; text-decoration:none; }
-.footer a:hover{ text-decoration:underline; }
-.footer hr{ border:0; border-top:1px solid #d2d2d7; margin:1.5rem auto; max-width:1200px; }
+.footer a {
+  color: #424245;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* SV: HR centrerad och begränsad till Apple-bredd
+   EN: HR centered and constrained to Apple width */
+.footer hr {
+  border: 0;
+  border-top: 1px solid #d2d2d7;
+  margin: 1.5rem auto;
+  max-width: var(--apple-max);
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+}
 
 /* Legal */
-.footer__legal{ max-width:1000px; margin:0 auto 1.5rem; }
-.footer__legal p{ margin:.75rem 0; }
+.footer__legal {
+  max-width: var(--apple-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+}
+.footer__legal p {
+  margin: 0.75rem 0;
+}
 
-/* Accordion / links */
-.footer .accordion{
-  max-width:1200px;
-  margin:0 auto 2rem;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1rem;
+/* Accordion / links grid */
+.footer .accordion {
+  max-width: var(--apple-max);
+  margin: 0 auto 2rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
-.acc-col{ border-bottom:1px solid #d2d2d7; padding-bottom:.5rem; }
-.acc-toggle{ position:absolute; left:-9999px; }
-.acc-summary{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:.8rem 0; font-weight:600; color:#1d1d1f; cursor:pointer; user-select:none;
+.acc-col {
+  border-bottom: 1px solid #d2d2d7;
+  padding-bottom: 0.5rem;
 }
-.acc-summary::after{
-  content:""; width:10px; height:10px;
-  border:solid #6e6e73; border-width:0 2px 2px 0;
-  transform:rotate(-45deg); transition:transform .2s;
+.acc-toggle {
+  position: absolute;
+  left: -9999px;
 }
-.acc-panel{ display:none; list-style:none; margin:0 0 .75rem; padding:0; }
-.acc-panel li{ margin:.35rem 0; }
-.acc-toggle:checked + .acc-summary::after{ transform:rotate(135deg); }
-.acc-toggle:checked + .acc-summary + .acc-panel{ display:block; }
+.acc-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  font-weight: 600;
+  color: #1d1d1f;
+  cursor: pointer;
+  user-select: none;
+}
+.acc-summary::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: solid #6e6e73;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+.acc-panel {
+  display: none;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.acc-panel li {
+  margin: 0.35rem 0;
+}
+.acc-toggle:checked + .acc-summary::after {
+  transform: rotate(135deg);
+}
+.acc-toggle:checked + .acc-summary + .acc-panel {
+  display: block;
+}
 
 /* Shop more line */
-.footer__shopmore{ max-width:1000px; margin:0 auto 1.5rem; font-size:12px; }
+.footer__shopmore {
+  max-width: var(--apple-max);
+  margin: 0 auto 1.5rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  font-size: 12px;
+}
 
 /* Bottom bar */
-.footer__bottom{
-  max-width:1200px; margin:0 auto; padding-top:1rem; border-top:1px solid #d2d2d7;
-  display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; align-items:center;
-  font-size:12px;
+.footer__bottom {
+  max-width: var(--apple-max);
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  border-top: 1px solid #d2d2d7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 }
-.footer__bottom ul{ list-style:none; display:flex; flex-wrap:wrap; gap:1rem; margin:0; padding:0; }
+.footer__bottom ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
 
-/* Desktop: grid columns, expanded, no chevrons */
-@media (min-width:768px){
-  .footer .accordion{
-    grid-template-columns:repeat(5, minmax(180px,1fr));
-    gap:2rem;
+/* Desktop: 5 columns, accordion open, no chevrons */
+@media (min-width: 768px) {
+  .footer .accordion {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 2rem;
   }
-  .acc-col{ border:0; padding-bottom:0; }
-  .acc-summary{ pointer-events:none; padding:0; }
-  .acc-summary::after{ display:none; }
-  .acc-panel{ display:block !important; margin-top:.5rem; }
+  .acc-col {
+    border: 0;
+    padding-bottom: 0;
+  }
+  .acc-summary {
+    pointer-events: none;
+    padding: 0;
+  }
+  .acc-summary::after {
+    display: none;
+  }
+  .acc-panel {
+    display: block !important;
+    margin-top: 0.5rem;
+  }
 }
+/* SV: "Fler sätt att handla" – samma färger som Apple
+   EN: "More ways to shop" – match Apple colors */
+.footer__shopmore{
+  color:#6e6e73;               /* body text grey */
+  font-size:12px;              /* Apple size */
+}
+
+.footer__shopmore a{
+  color:#06c;                  /* Apple blue links */
+  text-decoration:none;
+}
+
+.footer__shopmore a:hover,
+.footer__shopmore a:focus-visible{
+  text-decoration:underline;   /* Apple hover/focus behavior */
+}
+
+.footer__shopmore a:visited{
+  color:#06c;                  /* keep blue after visit */
+}
+
+/* optional: tiny active darken like Apple */
+.footer__shopmore a:active{ color:#0040cc; }

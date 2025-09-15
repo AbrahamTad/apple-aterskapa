@@ -1,4 +1,3 @@
-
 /* Base */
 /* =========================================
    VARIABLES & GLOBALS
@@ -8,23 +7,26 @@
 ========================================= */
 :root {
   /* Layout */
-  --maxw: 1120px;           /* content max width */
+  --maxw: 1120px; /* content max width */
+  --apple-max: 980px; /* Apple global footer/nav width */
+  --apple-gutter: 22px; /* side padding to match Apple */
 
-   --bg-black: #000;         
-  --text: #d2d2d7;          /* text on dark backgrounds (header/body on black) */
-  --text-dark: #1d1d1f;     
-  --light: #f5f5f7;         
-  --muted: #6e6e73;         
-  --blue: #0071e3;          
-  --ring: rgba(255,255,255,.25); 
+  --bg-black: #000;
+  --text: #d2d2d7; /* text on dark backgrounds (header/body on black) */
+  --text-dark: #1d1d1f;
+  --light: #f5f5f7;
+  --muted: #6e6e73;
+  --blue: #0071e3;
+  --ring: rgba(255, 255, 255, 0.25);
 
   /* Navbar height (page offset) */
-  --nav-h: 44px;            /* mobile */
+  --nav-h: 44px; /* mobile */
 }
 @media (min-width: 992px) {
-  :root { --nav-h: 48px; }  /* desktop */
+  :root {
+    --nav-h: 48px;
+  } /* desktop */
 }
-
 
 * {
   box-sizing: border-box;
@@ -42,7 +44,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons",
     Helvetica Neue, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  
+
   padding-top: var(--nav-h);
 }
 
@@ -71,6 +73,11 @@ img {
 /* =========================================
    NAVBAR
 ========================================= */
+.nav-wrapper .container {
+  max-width: var(--apple-max);
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+}
 .nav-wrapper {
   background: #1d1d1f;
 
@@ -78,10 +85,10 @@ img {
   font-weight: 200;
 }
 
-.navbar.fixed-top{
-  z-index:1045;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:#1d1d1f;              /* solid, no rgba transparency */
+.navbar.fixed-top {
+  z-index: 1045;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1d1d1f; /* solid, no rgba transparency */
 }
 
 .nav-wrapper .navbar {
@@ -240,113 +247,691 @@ img {
   }
 }
 
-
 /* =========================================================
    Sektioner — kompakt bas
    Sections — compact base styles
 ========================================================= */
 
-.section{margin:0;background:#fff;position:relative;z-index:1;}
-.section .wrap{max-width:var(--max);margin:0 auto;padding:56px 16px;}
-.center{text-align:center;}
-.bg-dark{ background:#000 !important; color:#fff; }
-.bg-light{background:var(--light);}
-.bg-white{background:#fff;}
-
-/* Limit image size for iPhone 17 Pro */
-.section.bg-dark .stage img {
-  max-width: 700px;   /* Adjust to control how wide the iPhone looks */
-  width: 100%;
-  height: auto;
-  margin-top: 40px; 
-  display: block;
+.section {
+  margin: 0;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+.section .wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px 16px;
 }
 
-/* Alternating section backgrounds */
-section:nth-of-type(odd) {
-  background-color: #ffffff; /* pure white */
+.center {
+  text-align: center;
 }
-section:nth-of-type(even) {
-  background-color: #f5f5f7; /* Apple light gray */
+.bg-dark {
+  background: #000 !important;
+  color: #fff;
+}
+.bg-light {
+  background: var(--light);
+}
+.bg-white {
+  background: #fff;
 }
 
 /* Subtle divider between sections */
 section + section {
-  border-top: 15px solid #ffffff; /* almost invisible divider */
+  border-top: 20px solid #ffffff; /* white gap between sections */
 }
-
-
 
 /* Typografi / Typography */
-.h1{font:700 clamp(2.5rem,5vw,3.5rem)/1.1 system-ui;}
-.h2{font:700 clamp(1.6rem,4vw,2.2rem)/1.2 system-ui;}
-.lead{font-size:clamp(1.1rem,2.2vw,1.5rem);margin:0;color:var(--text);}
-.lead--lg{font-size:clamp(1.25rem,2.6vw,1.7rem);}
-.lead-sm{font-size:1.05rem;margin:0 0 6px;}
-.meta{color:var(--muted);margin:6px 0 14px;}
-.white{color:#fff;}
-.grad{background:linear-gradient(90deg,#9a74ff, #64b4ff 40%, #4fe28a);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.grad2{background:linear-gradient(90deg,#7ac0ff, #6fe08f);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.logo{display:block;margin:0 auto 10px;max-width:280px;height:auto;}
-
-/* Knappar / Buttons (single source of truth) */
-.ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn{display:inline-block;padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:600;
-     border:1px solid var(--blue);color:var(--blue);background:transparent;transition:.25s;}
-.btn--primary{background:var(--blue);color:#fff;}
-.btn:hover{background:#000;border-color:#000;color:#fff;}
-
-/* Scen / Stage (images) */
-.stage{margin-top:28px;}
-.stage img{display:block;width:100%;height:auto;}
-/* iPhone Air: buttons overlap slightly into image */
-.hero-air .ctas{margin-top:12px;margin-bottom:-28px;}
-.stage--flush{margin-top:0;}
-
-/* Tvåspalt / Two-up grid */
-.grid2{display:grid;gap:12px;max-width:1400px;margin:0 auto;padding:0 16px;}
-@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr;gap:16px;}}
-
-.tile{border-radius:16px;overflow:hidden;display:grid;place-items:center;padding:28px 20px;text-align:center;}
-.tile.light{background:var(--light);color:var(--text);}
-.tile.dark{background:#000;color:#fff;}
-.tile.gradient{background:linear-gradient(180deg,#dff0ff 0%,#eff7ff 100%);}
-.tile .tile__content{max-width:640px;}
-.tile .tile__art{display:block;width:100%;height:auto;margin-top:16px;}
-.meta--dark{color:#bfbfc3;}
-
-/* Responsivt / Responsive tweaks */
-@media(max-width:768px){
-  .section .wrap{padding:44px 16px;}
-  .ctas{flex-direction:column}
-  .btn{width:200px;margin:0 auto;}
-  .logo{max-width:220px;}
+.h1 {
+  font: 700 clamp(2.5rem, 5vw, 3.5rem) / 1.1 system-ui;
+}
+.h2 {
+  font: 700 clamp(1.6rem, 4vw, 2.2rem) / 1.2 system-ui;
+}
+.lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  margin: 0;
+  color: var(--text);
+}
+.lead--lg {
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+}
+.lead-sm {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+}
+.meta {
+  color: var(--muted);
+  margin: 6px 0 14px;
+}
+.white {
+  color: #fff;
+}
+.grad {
+  background: linear-gradient(90deg, #9a74ff, #64b4ff 40%, #4fe28a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.grad2 {
+  background: linear-gradient(90deg, #7ac0ff, #6fe08f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.logo {
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 280px;
+  height: auto;
 }
 
+/* Knappar / Buttons (single source of truth) */
+.ctas {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  background: transparent;
+  transition: 0.25s;
+}
+.btn--primary {
+  background: var(--blue);
+  color: #fff;
+}
+.btn:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
 
-.hero-pro .ctas{
+/* Scen / Stage (images) */
+.stage {
+  margin-top: 28px;
+}
+.stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* iPhone Air: buttons overlap slightly into image */
+.hero-air .ctas {
+  margin-top: 12px;
+  margin-bottom: -28px;
+}
+.stage--flush {
+  margin-top: 0;
+}
+
+/* Tvåspalt / Two-up grid */
+.grid2 {
+  display: grid;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+@media (min-width: 900px) {
+  .grid2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.tile {
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 28px 20px;
+  text-align: center;
+}
+.tile.light {
+  background: var(--light);
+  color: var(--text);
+}
+.tile.dark {
+  background: #000;
+  color: #fff;
+}
+.tile.gradient {
+  background: linear-gradient(180deg, #dff0ff 0%, #eff7ff 100%);
+}
+.tile .tile__content {
+  max-width: 640px;
+}
+.tile.light.center .tile__content {
+  color: #000; /* make text black */
+  opacity: 1; /* remove any transparency */
+}
+
+.tile.light.center .tile__content h3.h2 {
+  font-weight: 600; /* make titles bolder */
+  color: #000;
+}
+
+.tile.light.center .tile__content p.lead-sm,
+.tile.light.center .tile__content p.meta {
+  color: #000; /* make subtext black too */
+  opacity: 1;
+}
+
+.tile .tile__art {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+}
+.meta--dark {
+  color: #bfbfc3;
+}
+
+/* Responsivt / Responsive tweaks */
+@media (max-width: 768px) {
+  .section .wrap {
+    padding: 44px 16px;
+  }
+  .ctas {
+    flex-direction: row;
+  }
+  .btn {
+    width: 150px;
+    margin: 0 auto;
+  }
+  .logo {
+    max-width: 200px;
+  }
+}
+
+.hero-pro .ctas {
   margin-bottom: clamp(16px, 4vw, 28px); /* extra gap above the image */
 }
 
 /* Default/tablet/desktop */
-.hero-pro .stage img{
-  display:block;
-  width: min(820px, 80vw);   /* cap size so it never dominates */
-  height:auto;
+.hero-pro .stage img {
+  display: block;
+  width: min(820px, 80vw); /* cap size so it never dominates */
+  height: auto;
   margin: clamp(18px, 4vw, 32px) auto 0;
 }
 
 /* Phones (≤734px): shrink further */
-@media (max-width: 734px){
-  .hero-pro .stage img{
+@media (max-width: 734px) {
+  .hero-pro .stage img {
     width: min(420px, 88vw); /* much smaller on small screens */
     margin-top: clamp(16px, 5vw, 24px);
   }
 }
 
+/* Make the whole hero more compact on phones */
+@media (max-width: 734px) {
+  /* tighter padding */
+  .section.hero-pro .wrap {
+    padding: 28px 12px 32px;
+  }
 
+  /* smaller title & texts */
+  .section.hero-pro .lead {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    margin-bottom: 2px;
+  }
 
+  .section.hero-pro .meta {
+    font-size: clamp(0.7rem, 2.6vw, 0.85rem);
+    margin-top: 2px;
+  }
 
+  .section.hero-pro .ctas {
+    display: flex;
+    flex-wrap: wrap; /* let them wrap if too tight */
+    justify-content: center;
+    gap: 10px; /* space between buttons */
+    margin-top: 14px;
+    flex-direction: row; /* ← force row layout */
+  }
 
+  .section.hero-pro .btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    white-space: nowrap; /* stop text from breaking */
+  }
 
+  /* image: actually smaller than before */
+  .section.hero-pro .stage {
+    margin-top: 16px;
+  }
+  .section.hero-pro .stage img {
+    width: min(250px, 72vw); /* ↓ from 420px/88vw */
+    margin-top: 14px;
+  }
+}
 
+/* ---------- fixes ---------- */
+.section .wrap {
+  /* fix var name */
+  max-width: var(--maxw);
+}
+
+/* ---------- global mobile scaling (≤734px) ---------- */
+@media (max-width: 734px) {
+  /* Tighter section padding */
+  .section .wrap {
+    padding: 28px 12px 30px;
+  }
+
+  /* Headings + text (fluid via clamp) */
+  .section .h1 {
+    font-size: clamp(1.4rem, 6vw, 1.9rem);
+    line-height: 1.05;
+    margin-bottom: 4px;
+  }
+  .section .h2 {
+    font-size: clamp(1.1rem, 4.8vw, 1.4rem);
+  }
+  .section .lead {
+    font-size: clamp(0.8rem, 3vw, 0.95rem);
+    margin-bottom: 2px;
+  }
+  .section .meta {
+    font-size: clamp(0.72rem, 2.6vw, 0.85rem);
+    margin-top: 2px;
+  }
+
+  /* Stage / images (applies to all sections) */
+  .section .stage {
+    margin-top: 16px;
+  }
+  .section .stage img {
+    width: min(360px, 74vw); /* smaller than desktop; fluid */
+    height: auto;
+    margin: 14px auto 0;
+  }
+
+  /* CTAs (side-by-side, shrink dynamically) */
+  .section .ctas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(6px, 2vw, 10px);
+    flex-wrap: nowrap; /* keep on one line; will shrink */
+  }
+
+  /* Override any earlier fixed button widths */
+  .section .btn {
+    width: auto !important;
+    white-space: nowrap;
+    /* fluid padding + font size */
+    padding: clamp(7px, 1.8vw, 10px) clamp(12px, 3vw, 18px);
+    font-size: clamp(0.78rem, 2.6vw, 0.9rem);
+    line-height: 1;
+  }
+
+  /* If the viewport gets very narrow, allow graceful wrap */
+  @supports (width: 100cqw) {
+    .section .ctas {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/* ---------- hero-pro desktop/tablet cap stays the same ---------- */
+.hero-pro .stage img {
+  display: block;
+  width: min(820px, 80vw);
+  height: auto;
+  margin: clamp(18px, 4vw, 32px) auto 0;
+}
+
+.section .ctas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15; /* ← remove space between buttons */
+}
+
+.section .ctas .btn {
+  flex: 1 1 0;
+  max-width: 160px;
+  text-align: center;
+  margin: 0; /* ← remove any side margins */
+  border-radius: 999px; /* keeps pill shape */
+}
+
+/* Slightly smaller on very small phones */
+@media (max-width: 500px) {
+  .section .ctas .btn {
+    max-width: 100px;
+    font-size: 0.7rem;
+    padding: 8px 8px;
+  }
+}
+
+/* layout + spacing */
+.iphone17-hero {
+  background: #f5f5f7;
+  padding-block: rem;
+}
+.iphone17-title {
+  color: #1d1d1f;
+  font-weight: 600;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  margin: 0 0 0.25rem;
+}
+.iphone17-subtitle {
+  color: #1d1d1f;
+  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  margin: 0.25rem 0 0.5rem;
+}
+.iphone17-meta {
+  color: #6e6e73;
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+}
+
+#iphone-17 .ctas {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Optional: make hero image breathe */
+#iphone-17 .stage {
+  display: block;
+  margin: 0.5rem auto 0;
+  max-width: 980px;
+}
+#iphone-17 .stage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* TV Gallery (Apple TV+ style slider) */
+.tv-gallery.tv-gallery-slider {
+  --gap: 0;
+  --i: 0;
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+/* hide radios */
+.tv-gallery-slider > input[type="radio"] {
+  position: absolute;
+  inset: -9999px;
+}
+
+/* viewport: full width */
+.tv-gallery__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* track: horizontal slides */
+.tv-gallery__track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform: translateX(calc(var(--i) * -100vw));
+}
+
+/* each card = full width */
+.tv-card {
+  flex: 0 0 100vw;
+  height: 80vh; /* large like Apple TV+ */
+  position: relative;
+}
+.tv-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* arrows */
+.tv-gallery__arrows {
+  pointer-events: none;
+}
+.tv-arrow {
+  pointer-events: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: none;
+}
+.tv-arrow--left {
+  left: 20px;
+}
+.tv-arrow--right {
+  right: 20px;
+}
+.tv-arrow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 12px;
+  height: 12px;
+  border: solid #1d1d1f;
+  border-width: 0 4px 4px 0;
+  transform: rotate(135deg);
+}
+.tv-arrow--right::before {
+  transform: rotate(-45deg);
+}
+
+/* radio → index */
+#tvg-0:checked ~ .tv-gallery__viewport {
+  --i: 0;
+}
+#tvg-1:checked ~ .tv-gallery__viewport {
+  --i: 1;
+}
+#tvg-2:checked ~ .tv-gallery__viewport {
+  --i: 2;
+}
+#tvg-3:checked ~ .tv-gallery__viewport {
+  --i: 3;
+}
+#tvg-4:checked ~ .tv-gallery__viewport {
+  --i: 4;
+}
+
+/* show only the right arrow pair for current state */
+#tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-0"],
+#tvg-1:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-1"],
+#tvg-2:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-2"],
+#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--left[for="tvg-3"],
+#tvg-0:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-1"],
+#tvg-1:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-2"],
+#tvg-2:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-3"],
+#tvg-3:checked ~ .tv-gallery__arrows .tv-arrow--right[for="tvg-4"] {
+  display: block;
+}
+
+/* Footer */
+.footer {
+  background: #f5f5f7;
+  color: #6e6e73;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 2rem 1rem;
+}
+.footer a {
+  color: #424245;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* SV: HR centrerad och begränsad till Apple-bredd
+   EN: HR centered and constrained to Apple width */
+.footer hr {
+  border: 0;
+  border-top: 1px solid #d2d2d7;
+  margin: 1.5rem auto;
+  max-width: var(--apple-max);
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+}
+
+/* Legal */
+.footer__legal {
+  max-width: var(--apple-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+}
+.footer__legal p {
+  margin: 0.75rem 0;
+}
+
+/* Accordion / links grid */
+.footer .accordion {
+  max-width: var(--apple-max);
+  margin: 0 auto 2rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.acc-col {
+  border-bottom: 1px solid #d2d2d7;
+  padding-bottom: 0.5rem;
+}
+.acc-toggle {
+  position: absolute;
+  left: -9999px;
+}
+.acc-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  font-weight: 600;
+  color: #1d1d1f;
+  cursor: pointer;
+  user-select: none;
+}
+.acc-summary::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: solid #6e6e73;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-45deg);
+  transition: transform 0.2s;
+}
+.acc-panel {
+  display: none;
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+.acc-panel li {
+  margin: 0.35rem 0;
+}
+.acc-toggle:checked + .acc-summary::after {
+  transform: rotate(135deg);
+}
+.acc-toggle:checked + .acc-summary + .acc-panel {
+  display: block;
+}
+
+/* Shop more line */
+.footer__shopmore {
+  max-width: var(--apple-max);
+  margin: 0 auto 1.5rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  font-size: 12px;
+}
+
+/* Bottom bar */
+.footer__bottom {
+  max-width: var(--apple-max);
+  margin: 0 auto;
+  padding-top: 1rem;
+  padding-left: var(--apple-gutter);
+  padding-right: var(--apple-gutter);
+  border-top: 1px solid #d2d2d7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+.footer__bottom ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Desktop: 5 columns, accordion open, no chevrons */
+@media (min-width: 768px) {
+  .footer .accordion {
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
+    gap: 2rem;
+  }
+  .acc-col {
+    border: 0;
+    padding-bottom: 0;
+  }
+  .acc-summary {
+    pointer-events: none;
+    padding: 0;
+  }
+  .acc-summary::after {
+    display: none;
+  }
+  .acc-panel {
+    display: block !important;
+    margin-top: 0.5rem;
+  }
+}
+/* SV: "Fler sätt att handla" – samma färger som Apple
+   EN: "More ways to shop" – match Apple colors */
+.footer__shopmore{
+  color:#6e6e73;               /* body text grey */
+  font-size:12px;              /* Apple size */
+}
+
+.footer__shopmore a{
+  color:#06c;                  /* Apple blue links */
+  text-decoration:none;
+}
+
+.footer__shopmore a:hover,
+.footer__shopmore a:focus-visible{
+  text-decoration:underline;   /* Apple hover/focus behavior */
+}
+
+.footer__shopmore a:visited{
+  color:#06c;                  /* keep blue after visit */
+}
+
+/* optional: tiny active darken like Apple */
+.footer__shopmore a:active{ color:#0040cc; }
