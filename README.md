@@ -5,7 +5,7 @@ Projektet är gjort för att träna på **responsiv design** och moderna webbtek
 
 ---
 
-## 🚀 Funktioner
+##  Funktioner
 
 - Responsiv navigationsmeny
 - Hero-sektion med bilder
@@ -14,7 +14,7 @@ Projektet är gjort för att träna på **responsiv design** och moderna webbtek
 
 ---
 
-## 📂 Projektstruktur
+##  Projektstruktur
 
 apple-aterskapa/
 ├─ assets/
